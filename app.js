@@ -10,6 +10,15 @@ var users = require('./routes/users');
 
 var app = express();
 
+//  set up mongoose connection
+var mongoose = require('mongoose');
+var mongoDB = 'mongodb://martuking:sara2017@ds123556.mlab.com:23556/union3';
+mongoose.connect(mongoDB,{
+	useMongoClient: true
+});
+var db = mongoose.connection;
+db.on('error', console.error.bind(console,'MongoDB connection error'));
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');

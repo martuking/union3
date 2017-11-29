@@ -27,10 +27,12 @@ var PersonalSchema = new Schema({
 	porcentajeZona : {type: Boolean, required: true}
 });
 
-PersonalSchema.virtual('nombre').get(function(){
+PersonalSchema.virtual('name').get(function(){
 	return this.nombre + ' '+ this.apellido1 + ' ' + this.apellido2;
 });
 
-PersonalSchema.virtual('_id').get(function(){
+PersonalSchema.virtual('id').get(function(){
 	return this._id;
 });
+
+module.exports = mongoose.model('Persona', PersonalSchema);

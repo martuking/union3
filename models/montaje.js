@@ -6,9 +6,9 @@ var MontajeSchema = new Schema({
 	//datos montaje y puesta en marcha
 	fechaInstalacion : {type: Date, required: true},
 	profesionalCargo: {typye: String,required:true},
-	jefeMontaje: {typye: String,required:true},
-	primerAyudanteMontaje: {typye: String,required:true},
-	segundoAyudanteMontaje: {typye: String,required:true},
+	jefeMontaje: { type: Schema.Types.ObjectId, ref: 'Persona' },
+	primerAyudanteMontaje: { type: Schema.Types.ObjectId, ref: 'Persona' },
+	segundoAyudanteMontaje: { type: Schema.Types.ObjectId, ref: 'Persona' },
 	
 	//datos cliente
 	empresa: {typye: String,required:true},

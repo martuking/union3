@@ -50,7 +50,7 @@ var MontajeSchema = new Schema({
 	sArroCumplir: {typye: Number,required:true},
 	tArroTramo: {typye: Number,required:true},
 	tArroAlt: {typye: Number,required:true},
-	tArroCumplir: {typye: Number,required:true},
+	tArroCumplir: {typye: Number,required:true}
 });
 
 

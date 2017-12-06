@@ -21,13 +21,10 @@ var ReparacionSchema = new Schema({
 	numero: { type: String, required:true },
 
 	//datos montaje y revisiones anteriores
-	fechaUltimoMontaje: { type: Date, required:true },
-	numeroUltimoMontaje: {type: Schema.Types.ObjectId, ref: 'Montaje' },
+	fechaMontaje: { type: Date, required:true },
+	numeroMontaje: {type: Schema.Types.ObjectId, ref: 'Montaje' },
 	fechaUltimaMantencion: { type: Date, required:true },
-	ultimaHojaRevision: { type: String, required:true },
-
-	//
-
+	ultimaRevision: { type: Schema.Types.ObjectId, ref: 'Revision' }
 
 
 

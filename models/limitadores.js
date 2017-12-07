@@ -34,14 +34,22 @@ var LimitadoresSchema = new Schema({
 	//de la punta
 	//limitador de carga maxima
 	// cargando 
-	peso3: { type: String, required:true },
+	peso3: { type: Number, required:true },
 	// a
-	longitud3: { type: String, required:true },
+	longitud3: { type: Number, required:true },
 	//funciona la elevacion y el carro, agregando
-	peso4: { type: String, required:true },
+	peso4: { type: Number, required:true },
 	//no funcionala elevacion ni el carro
 	//limitador de recorrido el carro se detiene a 
-	longitud4: { type: String, required:true },
+	longitud4: { type: Number, required:true },
+	//del pie y a
+	longitud5: { type: Number, required:true },
+	//de la punta el giro se detiene a los 
+	giro1 : { type: Number, required:true },
+	//y a los 
+	giro2: { type: Number, required:true }
+	//si se toma como 0° el norte
+
 	
 
 

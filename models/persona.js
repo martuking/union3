@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var PersonalSchema = new Schema({
+var PersonaSchema = new Schema({
 	cod : {type: String, required: true},
 	apellido1 : {type: String, required: true},
 	apellido2 : {type: String, required: true},
@@ -35,4 +35,4 @@ PersonalSchema.virtual('id').get(function(){
 	return this._id;
 });
 
-module.exports = mongoose.model('Persona', PersonalSchema);
+module.exports = mongoose.model('Persona', PersonaSchema);

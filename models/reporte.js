@@ -40,7 +40,7 @@ var ReporteSchema = new Schema({
 	ps: { type: Boolean, required:true },
 	//SE ACTIVÓ  LIMITADOR DE CARGA O MOMENTO		
 	lcm: { type: Boolean, required:true }
-
+});
 
 
 

@@ -27,11 +27,11 @@ var PersonaSchema = new Schema({
 	porcentajeZona : {type: Boolean, required: true}
 });
 
-PersonalSchema.virtual('name').get(function(){
+PersonaSchema.virtual('name').get(function(){
 	return this.nombre + ' '+ this.apellido1 + ' ' + this.apellido2;
 });
 
-PersonalSchema.virtual('id').get(function(){
+PersonaSchema.virtual('id').get(function(){
 	return this._id;
 });
 

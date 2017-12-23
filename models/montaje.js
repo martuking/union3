@@ -5,52 +5,52 @@ var MontajeSchema = new Schema({
 	
 	//datos montaje y puesta en marcha
 	fechaInstalacion : {type: Date, required: true},
-	profesionalCargo: {typye: String,required:true},
+	profesionalCargo: {type: String, required: true},
 	jefeMontaje: { type: Schema.Types.ObjectId, ref: 'Persona' },
 	primerAyudanteMontaje: { type: Schema.Types.ObjectId, ref: 'Persona' },
 	segundoAyudanteMontaje: { type: Schema.Types.ObjectId, ref: 'Persona' },
 	
 	//datos cliente
-	empresa: {typye: String,required:true},
-	obra: {typye: String,required:true},
-	direccion: {typye: String,required:true},
-	profesionalObra: {typye: String,required:true},
+	empresa: {type: String,required:true},
+	obra: {type: String,required:true},
+	direccion: {type: String,required:true},
+	profesionalObra: {type: String,required:true},
 
 	//informacion grua:
-	marca: {typye: String,required:true},
-	tipo: {typye: String,required:true},
-	modelo: {typye: String,required:true},
-	numero: {typye: String,required:true},
+	marca: {type: String,required:true},
+	tipo: {type: String,required:true},
+	modelo: {type: String,required:true},
+	numero: {type: String,required:true},
 
 	//informacion emplazamiento e instalacion electrica
-	areaTrabajo: {typye: Boolean,required:true},
-	fundaciones: {typye: Boolean,required:true},
-	lastresYcontrapesos {typye: Boolean,required:true},
-	instalacionesElectricas: {typye: Boolean,required:true},
+	areaTrabajo: {type: Boolean,required:true},
+	fundaciones: {type: Boolean,required:true},
+	lastresYcontrapesos: {type: Boolean,required:true},
+	instalacionesElectricas: {type: Boolean,required:true},
 
 	//emplazamiento de la grua
-	eLibreMinAncho: {typye: Number,required:true},
-	eLibreMinAltura: {typye: Number,required:true},
-	distTendidoElec: {typye: Number,required:true},
-	tension: eLibreMinAncho: {typye: Number,required:true},
-	distanciaEntreGruas: eLibreMinAncho: {typye: Number,required:true},
-	alturaMontajeUt: {typye: Number,required:true},
-	alturaMontajefinal: {typye: Number,required:true},
-	longitudPluma: {typye: Number,required:true},
-	longitudContraPluma: {typye: Number,required:true},
-	contrapesoPluma: {typye: Number,required:true},
-	lastresBasales : {typye: Number,required:true},
+	eLibreMinAncho: {type: Number,required:true},
+	eLibreMinAltura: {type: Number,required:true},
+	distTendidoElec: {type: Number,required:true},
+	tension: {type: Number,required:true},
+	distanciaEntreGruas: {type: Number,required:true},
+	alturaMontajeUt: {type: Number,required:true},
+	alturaMontajefinal: {type: Number,required:true},
+	longitudPluma: {type: Number,required:true},
+	longitudContraPluma: {type: Number,required:true},
+	contrapesoPluma: {type: Number,required:true},
+	lastresBasales : {type: Number,required:true},
 
 	//programa de arriostramiento
-	pArroTramo: {typye: Number,required:true},
-	pArroAlt: {typye: Number,required:true},
-	pArroCumplir: {typye: Number,required:true},
-	sArroTramo: {typye: Number,required:true},
-	sArroAlt: {typye: Number,required:true},
-	sArroCumplir: {typye: Number,required:true},
-	tArroTramo: {typye: Number,required:true},
-	tArroAlt: {typye: Number,required:true},
-	tArroCumplir: {typye: Number,required:true}
+	pArroTramo: {type: Number,required:true},
+	pArroAlt: {type: Number,required:true},
+	pArroCumplir: {type: Number,required:true},
+	sArroTramo: {type: Number,required:true},
+	sArroAlt: {type: Number,required:true},
+	sArroCumplir: {type: Number,required:true},
+	tArroTramo: {type: Number,required:true},
+	tArroAlt: {type: Number,required:true},
+	tArroCumplir: {type: Number,required:true}
 });
 
 

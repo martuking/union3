@@ -49,12 +49,6 @@ var LimitadoresSchema = new Schema({
 	//y a los 
 	giro2: { type: Number, required:true }
 	//si se toma como 0° el norte
-
-	
-
-
-	
-
-
+});
 
 module.exports = mongoose.model('Limitadores', LimitadoresSchema);

@@ -89,7 +89,7 @@ var RevisionSchema = new Schema({
 	//seguridad
 	cargaEnPunta: { type: String, required:true },
 	capachos: { type: String, required:true }
-
+});
 
 
 

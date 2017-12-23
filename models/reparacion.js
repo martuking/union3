@@ -25,7 +25,6 @@ var ReparacionSchema = new Schema({
 	numeroMontaje: {type: Schema.Types.ObjectId, ref: 'Montaje' },
 	fechaUltimaMantencion: { type: Date, required:true },
 	ultimaRevision: { type: Schema.Types.ObjectId, ref: 'Revision' }
-
-
+});
 
 module.exports = mongoose.model('Reparacion', ReparacionSchema);

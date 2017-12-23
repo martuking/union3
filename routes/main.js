@@ -12,7 +12,9 @@ var revision_controller = require('../controllers/revisionController');
 /// LIMITADORES ROUTES ///
 
 /* GET home page. */
-router.get('/', limitadores_controller.index);
+router.get('/',function(req, res) {
+    res.send('NOT IMPLEMENTED');
+});
 
 /* GET request for creating a limitadores. NOTE This must come before routes that display limitadores (uses id) */
 router.get('/limitadores/create', limitadores_controller.limitadores_create_get);

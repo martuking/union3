@@ -13,7 +13,7 @@ var revision_controller = require('../controllers/revisionController');
 
 /* GET home page. */
 router.get('/',function(req, res) {
-    res.send('NOT IMPLEMENTED');
+    res.send('Union App');
 });
 
 /* GET request for creating a limitadores. NOTE This must come before routes that display limitadores (uses id) */

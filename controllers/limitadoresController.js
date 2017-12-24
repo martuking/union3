@@ -1,41 +1,41 @@
-var Limitadores = require('../models/Limitadores');
+var limitadores = require('../models/limitadores');
 
-// Display list of all Limitadoress
-exports.Limitadores_list = function(req, res) {
-    res.send('NOT IMPLEMENTED: Limitadores list');
+// Display list of all limitadoress
+exports.limitadores_list = function(req, res) {
+    res.send('NOT IMPLEMENTED: limitadores list');
 };
 
-// Display detail page for a specific Limitadores
-exports.Limitadores_detail = function(req, res) {
-    res.send('NOT IMPLEMENTED: Limitadores detail: ' + req.params.id);
+// Display detail page for a specific limitadores
+exports.limitadores_detail = function(req, res) {
+    res.send('NOT IMPLEMENTED: limitadores detail: ' + req.params.id);
 };
 
-// Display Limitadores create form on GET
-exports.Limitadores_create_get = function(req, res) {
-    res.send('NOT IMPLEMENTED: Limitadores create GET');
+// Display limitadores create form on GET
+exports.limitadores_create_get = function(req, res) {
+    res.send('NOT IMPLEMENTED: limitadores create GET');
 };
 
-// Handle Limitadores create on POST
-exports.Limitadores_create_post = function(req, res) {
-    res.send('NOT IMPLEMENTED: Limitadores create POST');
+// Handle limitadores create on POST
+exports.limitadores_create_post = function(req, res) {
+    res.send('NOT IMPLEMENTED: limitadores create POST');
 };
 
-// Display Limitadores delete form on GET
-exports.Limitadores_delete_get = function(req, res) {
-    res.send('NOT IMPLEMENTED: Limitadores delete GET');
+// Display limitadores delete form on GET
+exports.limitadores_delete_get = function(req, res) {
+    res.send('NOT IMPLEMENTED: limitadores delete GET');
 };
 
-// Handle Limitadores delete on POST
-exports.Limitadores_delete_post = function(req, res) {
-    res.send('NOT IMPLEMENTED: Limitadores delete POST');
+// Handle limitadores delete on POST
+exports.limitadores_delete_post = function(req, res) {
+    res.send('NOT IMPLEMENTED: limitadores delete POST');
 };
 
-// Display Limitadores update form on GET
-exports.Limitadores_update_get = function(req, res) {
-    res.send('NOT IMPLEMENTED: Limitadores update GET');
+// Display limitadores update form on GET
+exports.limitadores_update_get = function(req, res) {
+    res.send('NOT IMPLEMENTED: limitadores update GET');
 };
 
-// Handle Limitadores update on POST
-exports.Limitadores_update_post = function(req, res) {
-    res.send('NOT IMPLEMENTED: Limitadores update POST');
+// Handle limitadores update on POST
+exports.limitadores_update_post = function(req, res) {
+    res.send('NOT IMPLEMENTED: limitadores update POST');
 };

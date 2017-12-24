@@ -1,41 +1,41 @@
-var Revision = require('../models/Revision');
+var revision = require('../models/revision');
 
-// Display list of all Revisions
-exports.Revision_list = function(req, res) {
-    res.send('NOT IMPLEMENTED: Revision list');
+// Display list of all revisions
+exports.revision_list = function(req, res) {
+    res.send('NOT IMPLEMENTED: revision list');
 };
 
-// Display detail page for a specific Revision
-exports.Revision_detail = function(req, res) {
-    res.send('NOT IMPLEMENTED: Revision detail: ' + req.params.id);
+// Display detail page for a specific revision
+exports.revision_detail = function(req, res) {
+    res.send('NOT IMPLEMENTED: revision detail: ' + req.params.id);
 };
 
-// Display Revision create form on GET
-exports.Revision_create_get = function(req, res) {
-    res.send('NOT IMPLEMENTED: Revision create GET');
+// Display revision create form on GET
+exports.revision_create_get = function(req, res) {
+    res.send('NOT IMPLEMENTED: revision create GET');
 };
 
-// Handle Revision create on POST
-exports.Revision_create_post = function(req, res) {
-    res.send('NOT IMPLEMENTED: Revision create POST');
+// Handle revision create on POST
+exports.revision_create_post = function(req, res) {
+    res.send('NOT IMPLEMENTED: revision create POST');
 };
 
-// Display Revision delete form on GET
-exports.Revision_delete_get = function(req, res) {
-    res.send('NOT IMPLEMENTED: Revision delete GET');
+// Display revision delete form on GET
+exports.revision_delete_get = function(req, res) {
+    res.send('NOT IMPLEMENTED: revision delete GET');
 };
 
-// Handle Revision delete on POST
-exports.Revision_delete_post = function(req, res) {
-    res.send('NOT IMPLEMENTED: Revision delete POST');
+// Handle revision delete on POST
+exports.revision_delete_post = function(req, res) {
+    res.send('NOT IMPLEMENTED: revision delete POST');
 };
 
-// Display Revision update form on GET
-exports.Revision_update_get = function(req, res) {
-    res.send('NOT IMPLEMENTED: Revision update GET');
+// Display revision update form on GET
+exports.revision_update_get = function(req, res) {
+    res.send('NOT IMPLEMENTED: revision update GET');
 };
 
-// Handle Revision update on POST
-exports.Revision_update_post = function(req, res) {
-    res.send('NOT IMPLEMENTED: Revision update POST');
+// Handle revision update on POST
+exports.revision_update_post = function(req, res) {
+    res.send('NOT IMPLEMENTED: revision update POST');
 };

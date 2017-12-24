@@ -1,41 +1,41 @@
-var Reporte = require('../models/Reporte');
+var reporte = require('../models/reporte');
 
-// Display list of all Reportes
-exports.Reporte_list = function(req, res) {
-    res.send('NOT IMPLEMENTED: Reporte list');
+// Display list of all reportes
+exports.reporte_list = function(req, res) {
+    res.send('NOT IMPLEMENTED: reporte list');
 };
 
-// Display detail page for a specific Reporte
-exports.Reporte_detail = function(req, res) {
-    res.send('NOT IMPLEMENTED: Reporte detail: ' + req.params.id);
+// Display detail page for a specific reporte
+exports.reporte_detail = function(req, res) {
+    res.send('NOT IMPLEMENTED: reporte detail: ' + req.params.id);
 };
 
-// Display Reporte create form on GET
-exports.Reporte_create_get = function(req, res) {
-    res.send('NOT IMPLEMENTED: Reporte create GET');
+// Display reporte create form on GET
+exports.reporte_create_get = function(req, res) {
+    res.send('NOT IMPLEMENTED: reporte create GET');
 };
 
-// Handle Reporte create on POST
-exports.Reporte_create_post = function(req, res) {
-    res.send('NOT IMPLEMENTED: Reporte create POST');
+// Handle reporte create on POST
+exports.reporte_create_post = function(req, res) {
+    res.send('NOT IMPLEMENTED: reporte create POST');
 };
 
-// Display Reporte delete form on GET
-exports.Reporte_delete_get = function(req, res) {
-    res.send('NOT IMPLEMENTED: Reporte delete GET');
+// Display reporte delete form on GET
+exports.reporte_delete_get = function(req, res) {
+    res.send('NOT IMPLEMENTED: reporte delete GET');
 };
 
-// Handle Reporte delete on POST
-exports.Reporte_delete_post = function(req, res) {
-    res.send('NOT IMPLEMENTED: Reporte delete POST');
+// Handle reporte delete on POST
+exports.reporte_delete_post = function(req, res) {
+    res.send('NOT IMPLEMENTED: reporte delete POST');
 };
 
-// Display Reporte update form on GET
-exports.Reporte_update_get = function(req, res) {
-    res.send('NOT IMPLEMENTED: Reporte update GET');
+// Display reporte update form on GET
+exports.reporte_update_get = function(req, res) {
+    res.send('NOT IMPLEMENTED: reporte update GET');
 };
 
-// Handle Reporte update on POST
-exports.Reporte_update_post = function(req, res) {
-    res.send('NOT IMPLEMENTED: Reporte update POST');
+// Handle reporte update on POST
+exports.reporte_update_post = function(req, res) {
+    res.send('NOT IMPLEMENTED: reporte update POST');
 };

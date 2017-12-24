@@ -1,41 +1,41 @@
-var Montaje = require('../models/Montaje');
+var montaje = require('../models/montaje');
 
-// Display list of all Montajes
-exports.Montaje_list = function(req, res) {
-    res.send('NOT IMPLEMENTED: Montaje list');
+// Display list of all montajes
+exports.montaje_list = function(req, res) {
+    res.send('NOT IMPLEMENTED: montaje list');
 };
 
-// Display detail page for a specific Montaje
-exports.Montaje_detail = function(req, res) {
-    res.send('NOT IMPLEMENTED: Montaje detail: ' + req.params.id);
+// Display detail page for a specific montaje
+exports.montaje_detail = function(req, res) {
+    res.send('NOT IMPLEMENTED: montaje detail: ' + req.params.id);
 };
 
-// Display Montaje create form on GET
-exports.Montaje_create_get = function(req, res) {
-    res.send('NOT IMPLEMENTED: Montaje create GET');
+// Display montaje create form on GET
+exports.montaje_create_get = function(req, res) {
+    res.send('NOT IMPLEMENTED: montaje create GET');
 };
 
-// Handle Montaje create on POST
-exports.Montaje_create_post = function(req, res) {
-    res.send('NOT IMPLEMENTED: Montaje create POST');
+// Handle montaje create on POST
+exports.montaje_create_post = function(req, res) {
+    res.send('NOT IMPLEMENTED: montaje create POST');
 };
 
-// Display Montaje delete form on GET
-exports.Montaje_delete_get = function(req, res) {
-    res.send('NOT IMPLEMENTED: Montaje delete GET');
+// Display montaje delete form on GET
+exports.montaje_delete_get = function(req, res) {
+    res.send('NOT IMPLEMENTED: montaje delete GET');
 };
 
-// Handle Montaje delete on POST
-exports.Montaje_delete_post = function(req, res) {
-    res.send('NOT IMPLEMENTED: Montaje delete POST');
+// Handle montaje delete on POST
+exports.montaje_delete_post = function(req, res) {
+    res.send('NOT IMPLEMENTED: montaje delete POST');
 };
 
-// Display Montaje update form on GET
-exports.Montaje_update_get = function(req, res) {
-    res.send('NOT IMPLEMENTED: Montaje update GET');
+// Display montaje update form on GET
+exports.montaje_update_get = function(req, res) {
+    res.send('NOT IMPLEMENTED: montaje update GET');
 };
 
-// Handle Montaje update on POST
-exports.Montaje_update_post = function(req, res) {
-    res.send('NOT IMPLEMENTED: Montaje update POST');
+// Handle montaje update on POST
+exports.montaje_update_post = function(req, res) {
+    res.send('NOT IMPLEMENTED: montaje update POST');
 };

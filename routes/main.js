@@ -8,13 +8,12 @@ var persona_controller = require('../controllers/personaController');
 var reparacion_controller = require('../controllers/reparacionController');
 var reporte_controller = require('../controllers/reporteController');
 var revision_controller = require('../controllers/revisionController');
+var summary_controller = require('../helpers/summary')
 
 /// LIMITADORES ROUTES ///
 
 /* GET home page. */
-router.get('/',function(req, res) {
-    res.send('Union App');
-});
+router.get('/', summary_controller.summary);
 
 /* GET request for creating a limitadores. NOTE This must come before routes that display limitadores (uses id) */
 router.get('/limitadores/create', limitadores_controller.limitadores_create_get);
@@ -38,7 +37,7 @@ router.post('/limitadores/:id/update', limitadores_controller.limitadores_update
 router.get('/limitadores/:id', limitadores_controller.limitadores_detail);
 
 /* GET request for list of all limitadores items. */
-router.get('/limitadoress', limitadores_controller.limitadores_list);
+router.get('/limitadores', limitadores_controller.limitadores_list);
 
 /// MONTAJE ROUTES ///
 
@@ -116,7 +115,7 @@ router.post('/reparacion/:id/update', reparacion_controller.reparacion_update_po
 router.get('/reparacion/:id', reparacion_controller.reparacion_detail);
 
 /* GET request for list of all reparacion items. */
-router.get('/reparacions', reparacion_controller.reparacion_list);
+router.get('/reparaciones', reparacion_controller.reparacion_list);
 
 // REPORTE ROUTES ///
 
@@ -168,7 +167,7 @@ router.post('/revision/:id/update', revision_controller.revision_update_post);
 router.get('/revision/:id', revision_controller.revision_detail);
 
 /* GET request for list of all revision items. */
-router.get('/revisions', revision_controller.revision_list);
+router.get('/revisiones', revision_controller.revision_list);
 
 
 module.exports = router;

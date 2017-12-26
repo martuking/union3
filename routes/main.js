@@ -8,12 +8,12 @@ var persona_controller = require('../controllers/personaController');
 var reparacion_controller = require('../controllers/reparacionController');
 var reporte_controller = require('../controllers/reporteController');
 var revision_controller = require('../controllers/revisionController');
-var summary_controller = require('../helpers/summary')
+var index_controller = require('../helpers/index')
 
 /// LIMITADORES ROUTES ///
 
 /* GET home page. */
-router.get('/', summary_controller.summary);
+router.get('/', index_controller.index);
 
 /* GET request for creating a limitadores. NOTE This must come before routes that display limitadores (uses id) */
 router.get('/limitadores/create', limitadores_controller.limitadores_create_get);

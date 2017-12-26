@@ -7,7 +7,7 @@ var revision = require('../models/revision');
 
 var async = require('async');
 
-exports.summary = function(req, res) {   
+exports.index = function(req, res) {   
     
     async.parallel({
         limitadores_count: function(callback) {
@@ -29,6 +29,6 @@ exports.summary = function(req, res) {
             revision.count(callback);
         }
     }, function(err, results) {
-        res.render('summary', {error: err, data: results });
+        res.render('index', {title:'Union App', error: err, data: results });
     });
 };

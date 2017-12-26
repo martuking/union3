@@ -2,4 +2,19 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
+  p Bienvenido a #[em Union App], la primera version de la aplicación de gestión de Union S.A.
+
+  h1 Resumen
+
+  if error
+    p Error getting dynamic content.
+  else
+    p Resumen de actividad de la empresa:
+
+    ul
+      li #[strong Personas:] !{data.persona_count} 
+      li #[strong Montajes:] !{data.montaje_count}
+      li #[strong Reparaciones:] !{data.reparacion_count}
+      li #[strong Reportes:] !{data.reporte_count}
+      li #[strong Revisiones:] !{data.revision_count}
+      li #[strong Pruebas de Limitadores:] !{data.limitadores_count}

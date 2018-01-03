@@ -2,7 +2,10 @@ var persona = require('../models/persona');
 
 // Display list of all personas
 exports.persona_list = function(req, res) {
-    res.send('NOT IMPLEMENTED: persona list');
+    persona.find({},'nombre apellido1').exec(function(err,list_personas){
+    	if(err){return next(err);}
+    	res.render('persona_list',{title: 'Listado Personal', list_personas});
+    })
 };
 
 // Display detail page for a specific persona

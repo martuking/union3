@@ -1,10 +1,10 @@
 var persona = require('../models/persona');
 
-// Display list of all personas
+// Display list of all persona
 exports.persona_list = function(req, res) {
     persona.find({},'nombre apellido1').exec(function(err,list_personas){
     	if(err){return next(err);}
-    	res.render('persona_list',{title: 'Listado Personal', list_personas});
+    	res.render('persona_list',{title: 'Listado Personal', persona_list:list_personas});
     })
 };
 

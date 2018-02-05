@@ -10,7 +10,8 @@ if (!userArgs[0].startsWith('mongodb://')) {
 }
 
 //var async = require('async')
-var Persona = require('./models/personal')
+var persona = require('./models/personal')
+var reporte = require('./models/reporte')
 
 var mongoose = require('mongoose');
 var mongoDB = userArgs[0];
@@ -19,8 +20,48 @@ var db = mongoose.connection;
 mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 var personas = []
+var reportes = []
 
 function createPerson(cod, apellido1, apellido2, nombre, rut, domicilio, cargo, dp, sexo, fechaNacimiento, fechaIngreso, sueldoBase, estadoCivil, porcentajeCom, afp, cargas, inval, isapre, tramo, dosPorciento, gratificacion, montoPactado, porcentajeZona,cb){
+	personDetail = {
+		cod : cod,
+		apellido1 : apellido1,
+		apellido2 : apellido2,
+		nombre : nombre,
+		rut : rut,
+		domicilio : domicilio,
+		cargo : cargo,
+		dp : dp,
+		sexo : sexo,
+		fechaNacimiento : fechaNacimiento,
+		fechaIngreso : fechaIngreso,
+		sueldoBase : sueldoBase,
+		estadoCivil : estadoCivil,
+		porcentajeCom : porcentajeCom,
+		afp : afp,
+		cargas : cargas,
+		inval : inval,
+		isapre : isapre,
+		tramo : tramo,
+		dosPorciento : dosPorciento,
+		gratificacion : gratificacion,
+		montoPactado : montoPactado,
+		porcentajeZona : porcentajeZona
+	}
+
+	var persona = new Persona(personDetail);
+	persona.save(function(err){
+		if (err){
+			cb(err,null)
+			return
+		}
+		console.log('Nueva persona: '+persona);
+		personas.push(persona)
+		cb(null, persona)
+	});
+}
+
+function createReport(cod, apellido1, apellido2, nombre, rut, domicilio, cargo, dp, sexo, fechaNacimiento, fechaIngreso, sueldoBase, estadoCivil, porcentajeCom, afp, cargas, inval, isapre, tramo, dosPorciento, gratificacion, montoPactado, porcentajeZona,cb){
 	personDetail = {
 		cod : cod,
 		apellido1 : apellido1,

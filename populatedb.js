@@ -61,43 +61,43 @@ function createPerson(cod, apellido1, apellido2, nombre, rut, domicilio, cargo, 
 	});
 }
 
-function createReport(cod, apellido1, apellido2, nombre, rut, domicilio, cargo, dp, sexo, fechaNacimiento, fechaIngreso, sueldoBase, estadoCivil, porcentajeCom, afp, cargas, inval, isapre, tramo, dosPorciento, gratificacion, montoPactado, porcentajeZona,cb){
-	personDetail = {
-		cod : cod,
-		apellido1 : apellido1,
-		apellido2 : apellido2,
-		nombre : nombre,
-		rut : rut,
-		domicilio : domicilio,
-		cargo : cargo,
-		dp : dp,
-		sexo : sexo,
-		fechaNacimiento : fechaNacimiento,
-		fechaIngreso : fechaIngreso,
-		sueldoBase : sueldoBase,
-		estadoCivil : estadoCivil,
-		porcentajeCom : porcentajeCom,
-		afp : afp,
-		cargas : cargas,
-		inval : inval,
-		isapre : isapre,
-		tramo : tramo,
-		dosPorciento : dosPorciento,
-		gratificacion : gratificacion,
-		montoPactado : montoPactado,
-		porcentajeZona : porcentajeZona
+function createReport(){
+	reportDetail = {
+		empresa : empresa,
+		obra : obra,
+		direccion : direccion,
+		profesionalObra : profesionalObra,
+		marca : marca,
+		tipo : tipo,
+		modelo : modelo,
+		numero : numero,
+		fecha : fecha,
+		horaInicio : horaInicio,
+		horaTermino : horaTermino,
+		colacion : colacion,
+		aalb : aalb,
+		aac : aac,
+		pacr : pacr,
+		ogv : ogv,
+		lrg : lrg,
+		cec : cec,
+		ccsg : ccsg,
+		aybc : aybc,
+		ps : ps,
+		lcm : lcm
 	}
 
-	var persona = new Persona(personDetail);
-	persona.save(function(err){
+	var reporte = new Report(reportDetail);
+	report.save(function(err){
 		if (err){
 			cb(err,null)
 			return
 		}
-		console.log('Nueva persona: '+persona);
-		personas.push(persona)
-		cb(null, persona)
+		console.log('Nuevo reporte: '+reporte);
+		reportes.push(reporte)
+		cb(null, reporte)
 	});
 }
 
 createPerson(123,'Schmidt','Fernandez','Martin',177008087,'Pocuro','Asesor','01','M','1991-03-18','2012-12-01',850000,'Soltero',0,'Modelo',0,false,'Cruz Blanca',1,false,true,2.91,false);
+createReport('Ingevec S.A.', 'Ibis', 'Manuel Montt 252', 'Mauricio Badawy', 'Jaso', 'Torre', 'J47NS', '0118', '2018-02-06', '2018-02-06T09:00:00', '2018-02-06T18:00:00', 1, true, true, true, true, true, true, true, true, true, true);

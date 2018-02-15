@@ -10,7 +10,7 @@ if (!userArgs[0].startsWith('mongodb://')) {
 }
 
 //var async = require('async')
-var persona = require('./models/personal')
+var persona = require('./models/persona')
 var reporte = require('./models/reporte')
 
 var mongoose = require('mongoose');
@@ -49,7 +49,7 @@ function createPerson(cod, apellido1, apellido2, nombre, rut, domicilio, cargo, 
 		porcentajeZona : porcentajeZona
 	}
 
-	var persona = new Persona(personDetail);
+	var persona = new persona(personDetail);
 	persona.save(function(err){
 		if (err){
 			cb(err,null)
@@ -61,7 +61,7 @@ function createPerson(cod, apellido1, apellido2, nombre, rut, domicilio, cargo, 
 	});
 }
 
-function createReport(){
+function createReport(empresa, obra, direccion, profesionalObra, marca, tipo, modelo, numero, fecha, horaInicio, horaTermino, colacion, aalb, aac, pacr, ogv, lrg, cec, ccsg, aybc, ps, lcm){
 	reportDetail = {
 		empresa : empresa,
 		obra : obra,
@@ -87,8 +87,8 @@ function createReport(){
 		lcm : lcm
 	}
 
-	var reporte = new Report(reportDetail);
-	report.save(function(err){
+	var reporte = new reporte(reportDetail);
+	reporte.save(function(err){
 		if (err){
 			cb(err,null)
 			return
@@ -99,5 +99,5 @@ function createReport(){
 	});
 }
 
-createPerson(123,'Schmidt','Fernandez','Martin',177008087,'Pocuro','Asesor','01','M','1991-03-18','2012-12-01',850000,'Soltero',0,'Modelo',0,false,'Cruz Blanca',1,false,true,2.91,false);
+//createPerson(123,'Schmidt','Fernandez','Martin',177008087,'Pocuro','Asesor','01','M','1991-03-18','2012-12-01',850000,'Soltero',0,'Modelo',0,false,'Cruz Blanca',1,false,true,2.91,false);
 createReport('Ingevec S.A.', 'Ibis', 'Manuel Montt 252', 'Mauricio Badawy', 'Jaso', 'Torre', 'J47NS', '0118', '2018-02-06', '2018-02-06T09:00:00', '2018-02-06T18:00:00', 1, true, true, true, true, true, true, true, true, true, true);

@@ -10,8 +10,8 @@ if (!userArgs[0].startsWith('mongodb://')) {
 }
 
 //var async = require('async')
-var persona = require('./models/persona')
-var reporte = require('./models/reporte')
+var Persona = require('./models/persona')
+var Reporte = require('./models/reporte')
 
 var mongoose = require('mongoose');
 var mongoDB = userArgs[0];
@@ -49,7 +49,7 @@ function createPerson(cod, apellido1, apellido2, nombre, rut, domicilio, cargo, 
 		porcentajeZona : porcentajeZona
 	}
 
-	var persona = new persona(personDetail);
+	var persona = new Persona(personDetail);
 	persona.save(function(err){
 		if (err){
 			cb(err,null)
@@ -87,7 +87,7 @@ function createReport(empresa, obra, direccion, profesionalObra, marca, tipo, mo
 		lcm : lcm
 	}
 
-	var reporte = new reporte(reportDetail);
+	var reporte = new Reporte(reportDetail);
 	reporte.save(function(err){
 		if (err){
 			cb(err,null)

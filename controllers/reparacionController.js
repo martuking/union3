@@ -2,7 +2,10 @@ var reparacion = require('../models/reparacion');
 
 // Display list of all reparacions
 exports.reparacion_list = function(req, res) {
-    res.send('NOT IMPLEMENTED: reparacion list');
+    reparacion.find({},'obra fechaReparacion').exec(function(err,list_reparaciones){
+    	if(err){return next(err);}
+    	res.render('reparacion_list',{title: 'Listado reparaciones', reparacion_list:list_reparaciones});
+    })
 };
 
 // Display detail page for a specific reparacion

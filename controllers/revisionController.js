@@ -2,7 +2,10 @@ var revision = require('../models/revision');
 
 // Display list of all revisions
 exports.revision_list = function(req, res) {
-    res.send('NOT IMPLEMENTED: revision list');
+    revision.find({},'obra fechaInspeccion').exec(function(err,list_revisiones){
+    	if(err){return next(err);}
+    	res.render('revision_list',{title: 'Listado revisionl', revision_list:list_revisiones});
+    })
 };
 
 // Display detail page for a specific revision

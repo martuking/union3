@@ -2,7 +2,10 @@ var montaje = require('../models/montaje');
 
 // Display list of all montajes
 exports.montaje_list = function(req, res) {
-    res.send('NOT IMPLEMENTED: montaje list');
+    montaje.find({},'obra fechaInstalacion').exec(function(err,list_montajes){
+    	if(err){return next(err);}
+    	res.render('montaje_list',{title: 'Listado montajes', montaje_list:list_montajes});
+    })
 };
 
 // Display detail page for a specific montaje

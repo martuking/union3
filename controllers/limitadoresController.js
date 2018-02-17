@@ -2,7 +2,10 @@ var limitadores = require('../models/limitadores');
 
 // Display list of all limitadoress
 exports.limitadores_list = function(req, res) {
-    res.send('NOT IMPLEMENTED: limitadores list');
+    limitadores.find({},'fechaPrueba obra').exec(function(err,list_limitadores){
+    	if(err){return next(err);}
+    	res.render('limitadores_list',{title: 'Listado pruebas limitadores', limitadores_list:list_limitadores});
+    })
 };
 
 // Display detail page for a specific limitadores

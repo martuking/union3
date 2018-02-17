@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1= title
+  
+  ul
+  each reporte in reporte_list
+    li 
+      a(href=reporte.url) #{reporte.empresa} 
+      |  (#{reporte.obra})
+
+  else
+    li No hay reportes en el listado

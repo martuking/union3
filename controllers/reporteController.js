@@ -2,7 +2,10 @@ var reporte = require('../models/reporte');
 
 // Display list of all reportes
 exports.reporte_list = function(req, res) {
-    res.send('NOT IMPLEMENTED: reporte list');
+    reporte.find({},'empresa obra').exec(function(err,list_reportes){
+    	if(err){return next(err);}
+    	res.render('reporte_list',{title: 'Listado Reportes', reporte_list:list_reportes});
+    })
 };
 
 // Display detail page for a specific reporte

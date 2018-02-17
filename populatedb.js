@@ -12,6 +12,10 @@ if (!userArgs[0].startsWith('mongodb://')) {
 //var async = require('async')
 var Persona = require('./models/persona')
 var Reporte = require('./models/reporte')
+var Montaje = require('./models/montaje')
+var Reparacion = require('./models/reparacion')
+var Revision = require('./models/revision')
+var Limitadores = require('/models/limitadores')
 
 var mongoose = require('mongoose');
 var mongoDB = userArgs[0];
@@ -21,8 +25,12 @@ mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection 
 
 var personas = []
 var reportes = []
+var montajes = []
+var reparaciones = []
+var revisiones = []
+var limitadores = []
 
-function createPerson(cod, apellido1, apellido2, nombre, rut, domicilio, cargo, dp, sexo, fechaNacimiento, fechaIngreso, sueldoBase, estadoCivil, porcentajeCom, afp, cargas, inval, isapre, tramo, dosPorciento, gratificacion, montoPactado, porcentajeZona,cb){
+function createPersona(cod, apellido1, apellido2, nombre, rut, domicilio, cargo, dp, sexo, fechaNacimiento, fechaIngreso, sueldoBase, estadoCivil, porcentajeCom, afp, cargas, inval, isapre, tramo, dosPorciento, gratificacion, montoPactado, porcentajeZona,cb){
 	personDetail = {
 		cod : cod,
 		apellido1 : apellido1,
@@ -61,7 +69,7 @@ function createPerson(cod, apellido1, apellido2, nombre, rut, domicilio, cargo, 
 	});
 }
 
-function createReport(empresa, obra, direccion, profesionalObra, marca, tipo, modelo, numero, fecha, horaInicio, horaTermino, colacion, aalb, aac, pacr, ogv, lrg, cec, ccsg, aybc, ps, lcm){
+function createReporte(empresa, obra, direccion, profesionalObra, marca, tipo, modelo, numero, fecha, horaInicio, horaTermino, colacion, aalb, aac, pacr, ogv, lrg, cec, ccsg, aybc, ps, lcm){
 	reportDetail = {
 		empresa : empresa,
 		obra : obra,
@@ -99,5 +107,47 @@ function createReport(empresa, obra, direccion, profesionalObra, marca, tipo, mo
 	});
 }
 
-//createPerson(123,'Schmidt','Fernandez','Martin',177008087,'Pocuro','Asesor','01','M','1991-03-18','2012-12-01',850000,'Soltero',0,'Modelo',0,false,'Cruz Blanca',1,false,true,2.91,false);
-createReport('Ingevec S.A.', 'Ibis', 'Manuel Montt 252', 'Mauricio Badawy', 'Jaso', 'Torre', 'J47NS', '0118', '2018-02-06', '2018-02-06T09:00:00', '2018-02-06T18:00:00', 1, true, true, true, true, true, true, true, true, true, true);
+function createMontaje(fechaInstalacion, profesionalCargo, jefeMontaje, primerAyudanteMontaje, segundoAyudanteMontaje, empresa, obra, direccion, profesionalObra, marca,tipo, modelo, numero, areaTrabajo, fundaciones, lastresYcontrapesos, instalacionesElectricas eLibreMinAncho, eLibreMinAltura, distTendidoElec, tension, distanciaEntreGruas,alturaMontajeUt,alturaMontajefinal, longitudContraPluma, longitudContraPluma, contrapesoPluma, lastresBasales, pArroTramo, pArroAlt, pArroCumplir, sArroTramo, sArroAlt, sArroCumplir, tArroTramo, tArroAlt, tArroCumplir ){
+	montajeDetail = {
+		fechaInstalacion : fechaInstalacion,
+		profesionalCargo : profesionalCargo,
+		jefeMontaje : jefeMontaje,
+		primerAyudanteMontaje : primerAyudanteMontaje,
+		segundoAyudanteMontaje : segundoAyudanteMontaje,
+		empresa : empresa,
+		obra : obra,
+		direccion : direccion,
+		profesionalObra : profesionalObra,
+		marca : marca,
+		tipo : tipo,
+		modelo : modelo,
+		numero : numero,
+		areaTrabajo : areaTrabajo,
+		fundaciones : fundaciones,
+		lastresYcontrapesos : lastresYcontrapesos,
+		instalacionesElectricas : instalacionesElectricas,
+		eLibreMinAncho : eLibreMinAncho,
+		eLibreMinAltura : eLibreMinAltura,
+		distTendidoElec : distTendidoElec,
+		tension : tension,
+		distanciaEntreGruas : distanciaEntreGruas,
+		alturaMontajeUt : alturaMontajeUt,
+		alturaMontajefinal : alturaMontajefinal,
+		longitudPluma : longitudPluma,
+		longitudContraPluma : longitudContraPluma,
+		contrapesoPluma : contrapesoPluma,
+		lastresBasales : lastresBasales,
+		pArroTramo : pArroTramo,
+		pArroAlt : pArroAlt,
+		pArroCumplir : pArroCumplir,
+		sArroTramo : sArroTramo,
+		sArroAlt : sArroAlt,
+		sArroCumplir : sArroCumplir,
+		tArroTramo : tArroTramo,
+		tArroAlt : tArroAlt,
+		tArroCumplir : tArroCumplir
+	}
+}
+
+//createPersona(123,'Schmidt','Fernandez','Martin',177008087,'Pocuro','Asesor','01','M','1991-03-18','2012-12-01',850000,'Soltero',0,'Modelo',0,false,'Cruz Blanca',1,false,true,2.91,false);
+//createReporte('Ingevec S.A.', 'Ibis', 'Manuel Montt 252', 'Mauricio Badawy', 'Jaso', 'Torre', 'J47NS', '0118', '2018-02-06', '2018-02-06T09:00:00', '2018-02-06T18:00:00', 1, true, true, true, true, true, true, true, true, true, true);

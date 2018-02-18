@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1= title
+  
+  ul
+  each limitadores in limitadores_list
+    li 
+      a(href=limitadores.url) #{limitadores.fechaPrueba} 
+      |  (#{limitadores.obra})
+
+  else
+    li No hay pruebas de limitadores en el listado en el listado

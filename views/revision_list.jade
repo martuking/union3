@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1= title
+  
+  ul
+  each revision in revision_list
+    li 
+      a(href=revision.url) #{revision.obra} 
+      |  (#{revision.fechaInspeccion})
+
+  else
+    li No hay revisiones en el listado

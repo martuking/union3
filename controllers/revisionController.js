@@ -4,7 +4,7 @@ var revision = require('../models/revision');
 exports.revision_list = function(req, res) {
     revision.find({},'obra fechaInspeccion').exec(function(err,list_revisiones){
     	if(err){return next(err);}
-    	res.render('revision_list',{title: 'Listado revisionl', revision_list:list_revisiones});
+    	res.render('revision_list',{title: 'Listado de Revisiones', revision_list:list_revisiones});
     })
 };
 

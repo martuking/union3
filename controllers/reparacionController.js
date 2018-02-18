@@ -4,7 +4,7 @@ var reparacion = require('../models/reparacion');
 exports.reparacion_list = function(req, res) {
     reparacion.find({},'obra fechaReparacion').exec(function(err,list_reparaciones){
     	if(err){return next(err);}
-    	res.render('reparacion_list',{title: 'Listado reparaciones', reparacion_list:list_reparaciones});
+    	res.render('reparacion_list',{title: 'Listado de Reparaciones', reparacion_list:list_reparaciones});
     })
 };
 

@@ -4,7 +4,7 @@ var montaje = require('../models/montaje');
 exports.montaje_list = function(req, res) {
     montaje.find({},'obra fechaInstalacion').exec(function(err,list_montajes){
     	if(err){return next(err);}
-    	res.render('montaje_list',{title: 'Listado montajes', montaje_list:list_montajes});
+    	res.render('montaje_list',{title: 'Listado de Montajes', montaje_list:list_montajes});
     })
 };
 

@@ -4,7 +4,7 @@ var reporte = require('../models/reporte');
 exports.reporte_list = function(req, res) {
     reporte.find({},'empresa obra').exec(function(err,list_reportes){
     	if(err){return next(err);}
-    	res.render('reporte_list',{title: 'Listado Reportes', reporte_list:list_reportes});
+    	res.render('reporte_list',{title: 'Listado de Reportes', reporte_list:list_reportes});
     })
 };
 

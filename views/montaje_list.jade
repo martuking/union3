@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1= title
+  
+  ul
+  each montaje in montaje_list
+    li 
+      a(href=montaje.url) #{montaje.obra} 
+      |  (#{montaje.fechaInstalacion})
+
+  else
+    li No hay montajes en el listado

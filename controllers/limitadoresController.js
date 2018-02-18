@@ -4,7 +4,7 @@ var limitadores = require('../models/limitadores');
 exports.limitadores_list = function(req, res) {
     limitadores.find({},'fechaPrueba obra').exec(function(err,list_limitadores){
     	if(err){return next(err);}
-    	res.render('limitadores_list',{title: 'Listado pruebas limitadores', limitadores_list:list_limitadores});
+    	res.render('limitadores_list',{title: 'Listado de Pruebas Limitadores', limitadores_list:list_limitadores});
     })
 };
 

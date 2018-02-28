@@ -10,7 +10,16 @@ exports.persona_list = function(req, res) {
 
 // Display detail page for a specific persona
 exports.persona_detail = function(req, res) {
-    res.send('NOT IMPLEMENTED: persona detail: ' + req.params.id);
+    persona.findById(req.params.id).exec(function(err, results) {
+        if (err) { return next(err); }
+        if (results.persona==null) { // No results.
+            var err = new Error('Persona not found');
+            err.status = 404;
+            return next(err);
+        }
+        // Successful, so render
+        res.render('persona_detail', { title: 'Persona Detail', persona: results.persona } );
+    });
 };
 
 // Display persona create form on GET

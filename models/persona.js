@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+var moment = require('moment');
 
 var PersonaSchema = new Schema({
 	cod : {type: String, required: true},
@@ -27,12 +28,17 @@ var PersonaSchema = new Schema({
 	porcentajeZona : {type: Boolean, required: true}
 });
 
-PersonaSchema.virtual('name').get(function(){
-	return this.nombre + ' '+ this.apellido1 + ' ' + this.apellido2;
+PersonaSchema.virtual('id').get(function(){
+	return '/main/persona/' + this._id;
 });
 
-PersonaSchema.virtual('id').get(function(){
-	return this._id;
+PersonaSchema.virtual('fecha_nacimiento_formato').get(function(){
+	return moment(this.fechaNacimiento).format('MMMM Do, YYYY');
 });
+
+PersonaSchema.virtual('fecha_ingreso_formato').get(function(){
+	return moment(this.fechaIngreso).format('MMMM Do, YYYY');
+});
+
 
 module.exports = mongoose.model('Persona', PersonaSchema);

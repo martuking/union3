@@ -1,8 +1,8 @@
-var reporte = require('../models/reporte');
+var Reporte = require('../models/reporte');
 
 // Display list of all reportes
 exports.reporte_list = function(req, res) {
-    reporte.find({},'empresa obra').exec(function(err,list_reportes){
+    Reporte.find({},'empresa obra').exec(function(err,list_reportes){
     	if(err){return next(err);}
     	res.render('reporte_list',{title: 'Listado de Reportes', reporte_list:list_reportes});
     })
@@ -10,7 +10,18 @@ exports.reporte_list = function(req, res) {
 
 // Display detail page for a specific reporte
 exports.reporte_detail = function(req, res) {
-    res.send('NOT IMPLEMENTED: reporte detail: ' + req.params.id);
+    Reporte.findById(req.params.id)
+    .populate('reporte')
+    .exec(function(err, reporteBuscado) {
+        if (err) { return next(err); }
+        if (reporteBuscado==null) { // No results.
+            var err = new Error('Reporte not found');
+            err.status = 404;
+            return next(err);
+        }
+        // Successful, so render
+        res.render('reporte_detail', { title: 'Reporte:', reporte: reporteBuscado } );
+    });
 };
 
 // Display reporte create form on GET

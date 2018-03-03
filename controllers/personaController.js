@@ -1,24 +1,29 @@
-var persona = require('../models/persona');
-
+var Persona = require('../models/persona');
+var mongoose = require('mongoose')
 // Display list of all persona
-exports.persona_list = function(req, res) {
-    persona.find({},'nombre apellido1').exec(function(err,list_personas){
-    	if(err){return next(err);}
-    	res.render('persona_list',{title: 'Listado de Personas', persona_list:list_personas});
-    })
+exports.persona_list = function(req, res, next) {
+    Persona.find()
+    .populate('persona')
+    .exec(function (err, list_personas) {
+      if (err) { return next(err); }
+      // Successful, so render
+      res.render('persona_list', { title: 'Listado de Personas', persona_list: list_personas });
+    });
 };
 
 // Display detail page for a specific persona
 exports.persona_detail = function(req, res) {
-    persona.findById(req.params.id).exec(function(err, results) {
+    Persona.findById(req.params.id)
+    .populate('persona')
+    .exec(function(err, personaBuscada) {
         if (err) { return next(err); }
-        if (results.persona==null) { // No results.
+        if (personaBuscada==null) { // No results.
             var err = new Error('Persona not found');
             err.status = 404;
             return next(err);
         }
         // Successful, so render
-        res.render('persona_detail', { title: 'Persona Detail', persona: results.persona } );
+        res.render('persona_detail', { title: 'Persona:', persona: personaBuscada } );
     });
 };
 

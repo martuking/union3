@@ -6,8 +6,7 @@ block content
   ul
   each reporte in reporte_list
     li 
-      a(href=reporte.url) #{reporte.empresa} 
-      |  (#{reporte.obra})
+      a(href=reporte.id) #{reporte.empresa} #{reporte.obra} 
 
   else
     li No hay reportes en el listado

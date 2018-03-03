@@ -1,0 +1,30 @@
+extends layout
+
+block content
+
+  h2 ID: #{reporte._id} 
+  h2 Información de la Obra 
+  p #[strong Empresa:] #{reporte.empresa}
+  p #[strong Obra:] #{reporte.obra}
+  p #[strong Dirección:] #{reporte.direccion}
+  p #[strong Profesional de la Obra:] #{reporte.profesionalObra}
+  h2 Información de la Grúa
+  p #[strong Marca:] #{reporte.marca}
+  p #[strong Tipo:] #{reporte.tipo}
+  p #[strong Modelo:] #{reporte.modelo}
+  p #[strong Número:] #{reporte.numero}
+  h2 Información del Reporte
+  p #[strong Fecha:] #{reporte.fecha_formato}
+  p #[strong Hora de Inicio:] #{reporte.horaInicio}
+  p #[strong Hora de Termino:] #{reporte.horaTermino}
+  p #[strong Horas de Colación:] #{reporte.colacion}
+  p #[strong Afianzamiento y Alineación Lastre Basal:] #{reporte.aalb}
+  p #[strong Afianzamiento y Alineación Contrapesos:] #{reporte.aac}
+  p #[strong Pérdida de Aceite de Cajas Reductoras:] #{reporte.pacr}
+  p #[strong Operación de Grúa en Vacío:] #{reporte.ogv}
+  p #[strong Limitadores de Recorrido y Gancho:] #{reporte.lrg}
+  p #[strong Comprobar el Estado de Cables:] #{reporte.cec}
+  p #[strong Comprobar Cierre de Seguridad Gancho:] #{reporte.ccsg}
+  p #[strong Asa y Bridas de Capachos:] #{reporte.aybc}
+  p #[strong Se cuenta con la Precensia del Señalero:] #{reporte.ps}
+  p #[strong Se activó Limitador de Carga o Momento:] #{reporte.lcm}

@@ -6,8 +6,7 @@ block content
   ul
   each persona in persona_list
     li 
-      a(href=persona.url) #{persona.nombre} 
-      |  (#{persona.apellido1})
+      a(href=persona.id) #{persona.nombre} #{persona.apellido1} 
 
   else
     li No hay personas en el listado

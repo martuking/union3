@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+var moment = require('moment');
 
 var ReporteSchema = new Schema({
 
@@ -42,7 +43,12 @@ var ReporteSchema = new Schema({
 	lcm: { type: Boolean, required:true }
 });
 
+ReporteSchema.virtual('id').get(function(){
+	return '/main/reporte/' + this._id;
+});
 
-
+ReporteSchema.virtual('fecha_formato').get(function(){
+	return moment(this.fecha).format('MMMM Do, YYYY');
+});
 
 module.exports = mongoose.model('Reporte', ReporteSchema);

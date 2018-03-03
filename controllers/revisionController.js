@@ -1,8 +1,8 @@
-var revision = require('../models/revision');
+var Revision = require('../models/revision');
 
 // Display list of all revisions
 exports.revision_list = function(req, res) {
-    revision.find({},'obra fechaInspeccion').exec(function(err,list_revisiones){
+    Revision.find({},'obra fechaInspeccion').exec(function(err,list_revisiones){
     	if(err){return next(err);}
     	res.render('revision_list',{title: 'Listado de Revisiones', revision_list:list_revisiones});
     })

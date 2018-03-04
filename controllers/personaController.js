@@ -1,5 +1,8 @@
 var Persona = require('../models/persona');
-var mongoose = require('mongoose')
+var mongoose = require('mongoose');
+const { body,validationResult } = require('express-validator/check');
+const { sanitizeBody } = require('express-validator/filter');
+
 // Display list of all persona
 exports.persona_list = function(req, res, next) {
     Persona.find()
@@ -12,7 +15,7 @@ exports.persona_list = function(req, res, next) {
 };
 
 // Display detail page for a specific persona
-exports.persona_detail = function(req, res) {
+exports.persona_detail = function(req, res, next) {
     Persona.findById(req.params.id)
     .populate('persona')
     .exec(function(err, personaBuscada) {
@@ -28,8 +31,8 @@ exports.persona_detail = function(req, res) {
 };
 
 // Display persona create form on GET
-exports.persona_create_get = function(req, res) {
-    res.send('NOT IMPLEMENTED: persona create GET');
+exports.persona_create_get = function(req, res, next) {
+    res.render('persona_form', { title: 'Agregar Persona'});
 };
 
 // Handle persona create on POST

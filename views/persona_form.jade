@@ -5,12 +5,22 @@ block content
 
   form(method='POST' action='')
     div.form-group
-      label(for='first_name') First Name:
-      input#first_name.form-control(type='text', placeholder='First name (Christian) last' name='first_name' required='true' value=(undefined===author ? '' : author.first_name) )
       
-      label(for='family_name') Family Name:
-      input#family_name.form-control(type='text', placeholder='Family name (surname)' name='family_name' required='true' value=(undefined===author ? '' : author.family_name))
+      label(for='cod') Código:
+      input#cod.form-control(type='text', placeholder='ADM001' name='cod' required='true' value=(undefined===persona ? '' : persona.cod) )
+
+      label(for='apellido1') Primer Apellido:
+      input#apellido1.form-control(type='text', placeholder='Schmidt' name='apellido1' required='true' value=(undefined===persona ? '' : persona.apellido1) )
+
+      label(for='apellido2') Segundo Apellido:
+      input#apellido2.form-control(type='text', placeholder='Fernández' name='apellido2' required='true' value=(undefined===persona ? '' : persona.apellido2) )
+
+      label(for='nombre') Nombre:
+      input#nombre.form-control(type='text', placeholder='Martín' name='nombre' required='true' value=(undefined===persona ? '' : persona.nombre))
     
+      label(for='rut') Rut:
+      input#rut.form-control(type='text', placeholder='177008087' name='rut' required='true' value=(undefined===persona ? '' : persona.rut))
+
     div.form-group
       label(for='date_of_birth') Date of birth:
       input#date_of_birth.form-control(type='date', name='date_of_birth', value=(undefined===author ? '' : author.date_of_birth) )

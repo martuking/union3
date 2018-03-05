@@ -7,7 +7,7 @@ var PersonaSchema = new Schema({
 	apellido1 : {type: String, required: true},
 	apellido2 : {type: String, required: true},
 	nombre : {type: String, required: true},
-	rut : {type: Number, required: true},
+	rut : {type: String, required: true},
 	domicilio : {type: String, required: true},
 	cargo : {type: String, required: true},
 	dp : {type: Number, required: true},

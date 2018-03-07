@@ -7,7 +7,7 @@ block content
     div.form-group
       
       label(for='cod') Código:
-      input#cod.form-control(type='text', placeholder='ADM001' name='cod' required='true' value=(undefined===persona ? '' : persona.cod) )
+      input#cod.form-control(type='text', placeholder='ADM004' name='cod' required='true' value=(undefined===persona ? '' : persona.cod) )
 
       label(for='apellido1') Primer Apellido:
       input#apellido1.form-control(type='text', placeholder='Schmidt' name='apellido1' required='true' value=(undefined===persona ? '' : persona.apellido1) )
@@ -21,10 +21,54 @@ block content
       label(for='rut') Rut:
       input#rut.form-control(type='text', placeholder='177008087' name='rut' required='true' value=(undefined===persona ? '' : persona.rut))
 
+      label(for='domicilio') Domicilio:
+      input#domicilio.form-control(type='text', placeholder='Pocuro' name='domicilio' required='true' value=(undefined===persona ? '' : persona.domicilio))
+
+      label(for='cargo') Cargo:
+      input#cargo.form-control(type='text', placeholder='Asesor' name='cargo' required='true' value=(undefined===persona ? '' : persona.cargo))      
+
+      label(for='sexo') Sexo:
+      input#sexo.form-control(type='text', placeholder='Masculino' name='sexo' required='true' value=(undefined===persona ? '' : persona.sexo)) 
+
+      label(for='estadoCivil') Estado Civil:
+      input#estadoCivil.form-control(type='text', placeholder='Soltero' name='estadoCivil' required='true' value=(undefined===persona ? '' : persona.estadoCivil))
+
+      label(for='afp') AFP:
+      input#afp.form-control(type='text', placeholder='Modelo' name='afp' required='true' value=(undefined===persona ? '' : persona.afp)) 
+
+      label(for='isapre') Isapre:
+      input#isapre.form-control(type='text', placeholder='Cruz Blanca' name='isapre' required='true' value=(undefined===persona ? '' : persona.isapre))       
+
     div.form-group
-      label(for='date_of_birth') Date of birth:
-      input#date_of_birth.form-control(type='date', name='date_of_birth', value=(undefined===author ? '' : author.date_of_birth) )
+      label(for='fechaNacimiento') Fecha de Nacimiento:
+      input#fechaNacimiento.form-control(type='date', name='fechaNacimiento', value=(undefined===persona ? '' : persona.fechaNacimiento) )
+
+      label(for='fechaIngreso') Fecha de Ingreso:
+      input#fechaIngreso.form-control(type='date', name='fechaIngreso', value=(undefined===persona ? '' : persona.fechaIngreso) )
     
+    div.form-group
+      label(for='dp') Dos Porciento:
+      input#dp.form-control(type='number', name='dp', value=(undefined===persona ? '' : persona.dp) )  
+
+      label(for='sueldoBase') Sueldo Base:
+      input#dp.form-control(type='number', name='sueldoBase', value=(undefined===persona ? '' : persona.sueldoBase) )
+
+      label(for='porcentajeCom') Porcentaje Complementario:
+      input#dp.form-control(type='number', name='porcentajeCom', value=(undefined===persona ? '' : persona.porcentajeCom) )
+
+      label(for='cargas') Numero de Cargas:
+      input#dp.form-control(type='number', name='cargas', value=(undefined===persona ? '' : persona.cargas) )       
+
+      label(for='tramo') Tramo:
+      input#dp.form-control(type='number', name='tramo', value=(undefined===persona ? '' : persona.tramo) )     
+
+      label(for='montoPactado') Monto Pactado:
+      input#dp.form-control(type='number', name='montoPactado', value=(undefined===persona ? '' : persona.montoPactado) )  
+    
+    di.form-group
+      label(for='inval') Invalidez: 
+            
+
     button.btn.btn-primary(type='submit') Submit
   if errors 
     ul

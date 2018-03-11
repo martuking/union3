@@ -108,5 +108,6 @@ function createReporte(empresa, obra, direccion, profesionalObra, marca, tipo, m
 }
 
 
-createPersona(123,'Schmidt','Fernandez','Martin','177008087','Pocuro','Asesor','01','M','1991-03-18','2012-12-01',850000,'Soltero',0,'Modelo',0,false,'Cruz Blanca',1,false,true,2.91,false);
-//createReporte('Ingevec S.A.', 'Ibis', 'Manuel Montt 252', 'Mauricio Badawy', 'Jaso', 'Torre', 'J47NS', '0118', '2018-02-06', '2018-02-06T09:00:00', '2018-02-06T18:00:00', 1, true, true, true, true, true, true, true, true, true, true);
+//createPersona(123,'Schmidt','Fernandez','Martin','177008087','Pocuro','Asesor','01','M','1991-03-18','2012-12-01',850000,'Soltero',0,'Modelo',0,false,'Cruz Blanca',1,false,true,2.91,false);
+createPersona(000,'Merino','Kipreos','Nciolas','176299169','Martin De Zamora','Consultor','01','M','1990-05-25','2018-03-11',850000,'Soltero',0,'Modelo',0,false,'Cruz Blanca',1,false,true,2.91,false);
+//createReporte('Ingevec S.A.', 'Ibis', 'Manuel Montt 252', 'Mauricio Badawy', 'Jaso', 'Torre', 'J47NS', '0118', '2018-02-06', '2018-02-06T09:00:00', '2018-02-06T18:00:00', 1, true, true, true, true, true, true, true, true, true, true);	

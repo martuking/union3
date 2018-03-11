@@ -47,30 +47,41 @@ block content
       input#fechaIngreso.form-control(type='date', name='fechaIngreso', value=(undefined===persona ? '' : persona.fechaIngreso) )
     
     div.form-group
-      label(for='dp') Dos Porciento:
-      input#dp.form-control(type='number', name='dp', value=(undefined===persona ? '' : persona.dp) )  
+      label(for='dp') DP:
+      input#dp.form-control(type='number', placeholder='01', name='dp', value=(undefined===persona ? '' : persona.dp) )  
 
       label(for='sueldoBase') Sueldo Base:
-      input#dp.form-control(type='number', name='sueldoBase', value=(undefined===persona ? '' : persona.sueldoBase) )
+      input#sueldoBase.form-control(type='number', placeholder='850 000', name='sueldoBase', value=(undefined===persona ? '' : persona.sueldoBase) )
 
       label(for='porcentajeCom') Porcentaje Complementario:
-      input#dp.form-control(type='number', name='porcentajeCom', value=(undefined===persona ? '' : persona.porcentajeCom) )
+      input#porcentajeCom.form-control(type='number', placeholder='0.00', name='porcentajeCom', value=(undefined===persona ? '' : persona.porcentajeCom) )
 
       label(for='cargas') Numero de Cargas:
-      input#dp.form-control(type='number', name='cargas', value=(undefined===persona ? '' : persona.cargas) )       
+      input#cargas.form-control(type='number', placeholder='0', name='cargas', value=(undefined===persona ? '' : persona.cargas) )       
 
       label(for='tramo') Tramo:
-      input#dp.form-control(type='number', name='tramo', value=(undefined===persona ? '' : persona.tramo) )     
+      input#tramo.form-control(type='number', placeholder='1', name='tramo', value=(undefined===persona ? '' : persona.tramo) )     
 
       label(for='montoPactado') Monto Pactado:
-      input#dp.form-control(type='number', name='montoPactado', value=(undefined===persona ? '' : persona.montoPactado) )  
-    
-    di.form-group
-      label(for='inval') Invalidez: 
-            
+      input#montoPactado.form-control(type='number', placeholder='2.91', name='montoPactado', value=(undefined===persona ? '' : persona.montoPactado) )  
 
-    button.btn.btn-primary(type='submit') Submit
-  if errors 
-    ul
-      for error in errors
-        li!= error.msg
+    div
+      div(style='display: inline; padding-right:10px;')
+        input.checkbox-input(type='checkbox', name='inval')
+        label(for='inval') Invalidez
+
+        input.checkbox-input(type='checkbox', name='dosPorciento')
+        label(for='dosPorciento') Dos Porciento
+
+        input.checkbox-input(type='checkbox', name='gratificacion')
+        label(for='gratificacion') Gratificación
+
+        input.checkbox-input(type='checkbox', name='porcentajeZona')
+        label(for='porcentajeZona') Porcentaje Zona        
+    
+    div
+      button.btn.btn-primary(type='submit') Submit
+    if errors 
+      ul
+        for error in errors
+          li!= error.msg

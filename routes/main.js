@@ -91,6 +91,9 @@ router.get('/persona/:id', persona_controller.persona_detail);
 /* GET request for list of all persona items. */
 router.get('/personas', persona_controller.persona_list);
 
+/*end point merkat*/
+router.get('/api/v1/personas/',persona_controller.api_persona_list);
+
 // REPARACION ROUTES ///
 
 /* GET request for creating a reparacion. NOTE This must come before routes that display reparacion (uses id) */

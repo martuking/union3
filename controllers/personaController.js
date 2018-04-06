@@ -37,8 +37,8 @@ exports.persona_create_get = function(req, res, next) {
 };
 
 // Handle persona create on POST
-/*exports.persona_create_post = function(req, res) {
-    body('cod').isLength({ min: 1 }).trim().isAlphanumeric,
+exports.persona_create_post = function(req, res) {
+    /*body('cod').isLength({ min: 1 }).trim().isAlphanumeric,
     body('apellido1').isLength({ min: 1 }).trim().isAlphanumeric(),
     body('apellido2').isLength({ min: 1 }).trim().withMessage.isAlphanumeric().,
     body('nombre').isLength({ min: 1 }).trim().isAlphanumeric(),
@@ -53,8 +53,8 @@ exports.persona_create_get = function(req, res, next) {
     body('sueldoBase').isLength({ min: 1 }).trim().isAlphanumeric(),
     body('estadoCivil').isLength({ min: 1 }).trim().isAlphanumeric(),
     body('porcentaCom').isLength({ min: 1 }).trim().isAlphanumeric(),
-    body('afp').isLength({ min: 1 }).trim().isAlphanumeric(),
-};*/
+    body('afp').isLength({ min: 1 }).trim().isAlphanumeric(),*/
+};
 
 // Display persona delete form on GET
 exports.persona_delete_get = function(req, res) {

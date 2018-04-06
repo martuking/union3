@@ -19,11 +19,11 @@ var PersonaSchema = new Schema({
 	porcentajeCom: {type: Number, required: true},
 	afp : {type: String, required: true},
 	cargas : {type: Number, required: true},
-	inval : {type: Boolean, required: true},
+	inval : {type: Boolean},
 	isapre : {type: String, required: true},
 	tramo : {type: Number, required: true},
-	dosPorciento : {type: Boolean, required: true},
-	gratificacion : {type: Boolean, required: true},
+	dosPorciento : {type: Boolean},
+	gratificacion : {type: Boolean},
 	montoPactado : {type: Number, required: true},
 	porcentajeZona : {type: Boolean, required: true}
 });

@@ -37,23 +37,39 @@ exports.persona_create_get = function(req, res, next) {
 };
 
 // Handle persona create on POST
-exports.persona_create_post = function(req, res) {
-    /*body('cod').isLength({ min: 1 }).trim().isAlphanumeric,
-    body('apellido1').isLength({ min: 1 }).trim().isAlphanumeric(),
-    body('apellido2').isLength({ min: 1 }).trim().withMessage.isAlphanumeric().,
-    body('nombre').isLength({ min: 1 }).trim().isAlphanumeric(),
-    body('rut').isLength({ min: 1 }).trim().isAlphanumeric,
-    body('domicilio').isLength({ min: 1 }).trim().isAlphanumeric.,
-    body('cargo').isLength({ min: 1 }).trim().isAlphanumeric(),
-    body('dp').isLength({ min: 1 }).trim().isAlphanumeric().withMessage('DP es un numero'),
-    body('cargo').isLength({ min: 1 }).trim().isAlphanumeric(),
-    body('sexo').isLength({ min: 1 }).trim().isAlphanumeric(),
-    body('fechaNacimiento').optional({ checkFalsy: true }).isISO8601(),
-    body('fechaIngreso').optional({ checkFalsy: true }).isISO8601(),
-    body('sueldoBase').isLength({ min: 1 }).trim().isAlphanumeric(),
-    body('estadoCivil').isLength({ min: 1 }).trim().isAlphanumeric(),
-    body('porcentaCom').isLength({ min: 1 }).trim().isAlphanumeric(),
-    body('afp').isLength({ min: 1 }).trim().isAlphanumeric(),*/
+exports.persona_create_post = function(req, res, next) {
+    var persona = new Persona(
+        {
+            cod: req.body.cod,
+            apellido1: req.body.apellido1,
+            apellido2: req.body.apellido2,
+            nombre: req.body.nombre,
+            rut: req.body.rut,
+            domicilio: req.body.domicilio,
+            cargo: req.body.cargo,
+            dp: req.body.dp,
+            sexo: req.body.sexo,
+            fechaNacimiento: req.body.fechaNacimiento,
+            fechaIngreso: req.body.fechaIngreso,
+            sueldoBase: req.body.sueldoBase,
+            estadoCivil: req.body.estadoCivil,
+            porcentajeCom: req.body.porcentajeCom,
+            afp: req.body.afp,
+            cargas: req.body.cargas,
+            inval: req.body.inval,
+            isapre: req.body.isapre,
+            tramo: req.body.tramo,
+            dosPorciento: req.body.dosPorciento,
+            gratificacion: req.body.gratificacion,
+            montoPactado: req.body.montoPactado,
+            porcentajeZona: req.body.porcentajeZona
+        }   
+    )
+    persona.save(function (err) {
+        if (err) { return next(err); }
+           // Successful - redirect to new record.
+           res.redirect(persona.id);
+        });
 };
 
 // Display persona delete form on GET

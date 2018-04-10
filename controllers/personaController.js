@@ -21,7 +21,7 @@ exports.persona_detail = function(req, res, next) {
     .populate('persona')
     .exec(function(err, personaBuscada) {
         if (err) { return next(err); }
-        if (personaBuscada==null) { // No results.
+        if (personaBuscada == null) { // No results.
             var err = new Error('Persona not found');
             err.status = 404;
             return next(err);
@@ -74,12 +74,32 @@ exports.persona_create_post = function(req, res, next) {
 
 // Display persona delete form on GET
 exports.persona_delete_get = function(req, res) {
-    res.send('NOT IMPLEMENTED: persona delete GET');
+    Persona.findById(req.params.id).exec(
+        function(err, personaBuscada){
+            if (err) {return next(err);}
+            if (personaBuscada == null){
+                res.redirect('/main/personas');
+            }
+            res.render('persona_delete', { title: 'Eliminar Persona', persona: personaBuscada } );
+        }
+        
+    )
+    
 };
 
 // Handle persona delete on POST
 exports.persona_delete_post = function(req, res) {
-    res.send('NOT IMPLEMENTED: persona delete POST');
+    Persona.findById(req.body.id).exec(
+        function(err, results){
+            if (err) {return next(err);}
+            else {
+                Persona.findByIdAndRemove(req.body, function eleminarPersona(err){
+                    if (err) { return next(err);}
+                    res.redirect('/main/personas')
+                })
+            }
+        }
+    )
 };
 
 // Display persona update form on GET

@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h1 #{title}: #{persona.nombre} #{persona.apellido1}
+
+    p Quieres eliminar esta persona?
+    
+    form(method='POST' action='')
+      div.form-group
+        input#id.form-control(type='text',name='personaid', required='true', value=persona._id )
+
+      button.btn.btn-primary(type='submit') Delete

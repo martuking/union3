@@ -73,7 +73,7 @@ exports.persona_create_post = function(req, res, next) {
 };
 
 // Display persona delete form on GET
-exports.persona_delete_get = function(req, res) {
+exports.persona_delete_get = function(req, res, next) {
     Persona.findById(req.params.id).exec(
         function(err, personaBuscada){
             if (err) {return next(err);}
@@ -81,14 +81,12 @@ exports.persona_delete_get = function(req, res) {
                 res.redirect('/main/personas');
             }
             res.render('persona_delete', { title: 'Eliminar Persona', persona: personaBuscada } );
-        }
-        
+        }   
     )
-    
 };
 
 // Handle persona delete on POST
-exports.persona_delete_post = function(req, res) {
+exports.persona_delete_post = function(req, res, next) {
     Persona.findById(req.body.id).exec(
         function(err, results){
             if (err) {return next(err);}

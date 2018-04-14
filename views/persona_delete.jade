@@ -7,6 +7,6 @@ block content
     
     form(method='POST' action='')
       div.form-group
-        input#id.form-control(type='text',name='personaid', required='true', value=persona._id )
+        input#id.form-control(type='hidden',name='personaid', required='true', value=persona._id )
 
       button.btn.btn-primary(type='submit') Delete

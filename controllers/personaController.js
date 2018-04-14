@@ -91,7 +91,7 @@ exports.persona_delete_post = function(req, res, next) {
         function(err, results){
             if (err) {return next(err);}
             else {
-                Persona.findByIdAndRemove(req.body, function eleminarPersona(err){
+                Persona.findByIdAndRemove(req.body.personaid, function eleminarPersona(err){
                     if (err) { return next(err);}
                     res.redirect('/main/personas')
                 })
@@ -101,13 +101,23 @@ exports.persona_delete_post = function(req, res, next) {
 };
 
 // Display persona update form on GET
-exports.persona_update_get = function(req, res) {
-    res.send('NOT IMPLEMENTED: persona update GET');
+exports.persona_update_get = function(req, res, next) {
+    Persona.findById(req.params.id).populate('persona').exec(
+        function(err, results){
+            if (err) { return next(err); }
+            if (results == null) { // No results.
+                var err = new Error('Persona not found');
+                err.status = 404;
+                return next(err);
+            }
+        }   
+    )
+    res.render('persona_form', { title: 'Actualizar Persona', personas:results.personas });
 };
 
 // Handle persona update on POST
 exports.persona_update_post = function(req, res) {
-    res.send('NOT IMPLEMENTED: persona update POST');
+    
 };
 
 //controller for merkat

@@ -25,7 +25,7 @@ var PersonaSchema = new Schema({
 	dosPorciento : {type: Boolean},
 	gratificacion : {type: Boolean},
 	montoPactado : {type: Number, required: true},
-	porcentajeZona : {type: Boolean, required: true}
+	porcentajeZona : {type: Boolean}
 });
 
 PersonaSchema.virtual('id').get(function(){

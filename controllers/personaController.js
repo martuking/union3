@@ -11,7 +11,6 @@ exports.persona_list = function(req, res, next) {
       if (err) { return next(err); }
       // Successful, so render
       res.render('persona_list', { title: 'Listado de Personas', persona_list: list_personas });
-      //res.send(list_personas);
     });
 };
 

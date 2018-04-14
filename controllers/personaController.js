@@ -102,22 +102,60 @@ exports.persona_delete_post = function(req, res, next) {
 
 // Display persona update form on GET
 exports.persona_update_get = function(req, res, next) {
-    Persona.findById(req.params.id).populate('persona').exec(
-        function(err, results){
-            if (err) { return next(err); }
-            if (results == null) { // No results.
-                var err = new Error('Persona not found');
-                err.status = 404;
-                return next(err);
-            }
-        }   
-    )
-    res.render('persona_form', { title: 'Actualizar Persona', personas:results.personas });
+    Persona.findById(req.params.id)
+    .populate('persona')
+    .exec(function(err, personaBuscada){
+        if (err) { return next(err); }
+        if (personaBuscada == null) { // No results.
+            var err = new Error('Persona not found');
+            err.status = 404;
+            return next(err);
+        }
+        res.render('persona_form', { title: 'Actualizar Persona', personas:personaBuscada });
+    }   
+    );
 };
 
 // Handle persona update on POST
-exports.persona_update_post = function(req, res) {
-    
+exports.persona_update_post = function(req, res, next) {
+    var persona = new Persona(
+        {
+            cod: req.body.cod,
+            apellido1: req.body.apellido1,
+            apellido2: req.body.apellido2,
+            nombre: req.body.nombre,
+            rut: req.body.rut,
+            domicilio: req.body.domicilio,
+            cargo: req.body.cargo,
+            dp: req.body.dp,
+            sexo: req.body.sexo,
+            fechaNacimiento: req.body.fechaNacimiento,
+            fechaIngreso: req.body.fechaIngreso,
+            sueldoBase: req.body.sueldoBase,
+            estadoCivil: req.body.estadoCivil,
+            porcentajeCom: req.body.porcentajeCom,
+            afp: req.body.afp,
+            cargas: req.body.cargas,
+            inval: req.body.inval,
+            isapre: req.body.isapre,
+            tramo: req.body.tramo,
+            dosPorciento: req.body.dosPorciento,
+            gratificacion: req.body.gratificacion,
+            montoPactado: req.body.montoPactado,
+            porcentajeZona: req.body.porcentajeZona,
+            _id:req.params.id
+        }   
+    )
+    Persona.find(
+        function(err, results){
+            if(err) { return next(err); }
+        }
+    );
+    res.render('persona_form', { title: 'Actualizar Persona', personas:results.personas});
+    Persona.findByIdAndUpdate(req.params.id, persona, function(err, lapersona){
+        if (err) { return next(err); }
+        res.redirect(lapersona.id)
+    })
 };
 
 //controller for merkat

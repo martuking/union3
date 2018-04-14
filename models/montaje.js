@@ -53,5 +53,9 @@ var MontajeSchema = new Schema({
 	tArroCumplir: {type: Number,required:true}
 });
 
+MontajeSchema.virtual('id').get(function(){
+	return '/main/montaje/' + this._id;
+});
+
 
 module.exports = mongoose.model('Montaje', MontajeSchema);

@@ -91,6 +91,9 @@ var RevisionSchema = new Schema({
 	capachos: { type: String, required:true }
 });
 
+RevisionSchema.virtual('id').get(function(){
+	return '/main/revision/' + this._id;
+});
 
 
 

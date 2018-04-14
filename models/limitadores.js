@@ -51,4 +51,8 @@ var LimitadoresSchema = new Schema({
 	//si se toma como 0° el norte
 });
 
+LimitadoresSchema.virtual('id').get(function(){
+	return '/main/limitadores/' + this._id;
+});
+
 module.exports = mongoose.model('Limitadores', LimitadoresSchema);

@@ -27,4 +27,9 @@ var ReparacionSchema = new Schema({
 	ultimaRevision: { type: Schema.Types.ObjectId, ref: 'Revision' }
 });
 
+ReparacionSchema.virtual('id').get(function(){
+	return '/main/reparacion/' + this._id;
+});
+
+
 module.exports = mongoose.model('Reparacion', ReparacionSchema);

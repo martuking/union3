@@ -117,7 +117,7 @@ exports.persona_update_get = function(req, res, next) {
 
 // Handle persona update on POST
 exports.persona_update_post = function(req, res, next) {
-    var persona = new Persona(
+    /*var persona = new Persona(
         {
             cod: req.body.cod,
             apellido1: req.body.apellido1,
@@ -146,15 +146,16 @@ exports.persona_update_post = function(req, res, next) {
         }   
     )
     Persona.find(
-        function(err, results){
+        function(err, _id){
             if(err) { return next(err); }
         }
     );
-    res.render('persona_form', { title: 'Actualizar Persona', personas:results.personas});
+    res.render('persona_form', { title: 'Actualizar Persona', personas:id});
     Persona.findByIdAndUpdate(req.params.id, persona, function(err, lapersona){
         if (err) { return next(err); }
         res.redirect(lapersona.id)
-    })
+    })*/
+    res.send('entre al controlador');
 };
 
 //controller for merkat

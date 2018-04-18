@@ -137,12 +137,6 @@ exports.reporte_update_post = function(req, res) {
             _id:req.params.id
         }   
     )
-    Reporte.find(
-        function(err, results){
-            if(err) { return next(err); }
-        }
-    );
-    res.render('reporte_form', { title: 'Actualizar Reporte', reportes:results.reportes});
     Reporte.findByIdAndUpdate(req.params.id, reporte, function(err, elreporte){
         if (err) { return next(err); }
         res.redirect(elreporte.id)

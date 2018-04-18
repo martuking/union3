@@ -149,7 +149,6 @@ exports.persona_update_post = function(req, res, next) {
         if (err) { return next(err); }
         res.redirect(lapersona.id)
     })
-    
 };
 
 //controller for merkat

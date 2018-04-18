@@ -1,4 +1,5 @@
 var Reporte = require('../models/reporte');
+var mongoose = require('mongoose');
 
 // Display list of all reportes
 exports.reporte_list = function(req, res) {

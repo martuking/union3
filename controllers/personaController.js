@@ -81,7 +81,7 @@ exports.persona_delete_get = function(req, res, next) {
             }
             res.render('persona_delete', { title: 'Eliminar Persona', persona: personaBuscada } );
         }   
-    )
+    );
 };
 
 // Handle persona delete on POST
@@ -96,7 +96,7 @@ exports.persona_delete_post = function(req, res, next) {
                 })
             }
         }
-    )
+    );
 };
 
 // Display persona update form on GET
@@ -148,7 +148,7 @@ exports.persona_update_post = function(req, res, next) {
     Persona.findByIdAndUpdate(req.params.id, persona, function(err, lapersona){
         if (err) { return next(err); }
         res.redirect(lapersona.id)
-    })
+    });
 };
 
 //controller for merkat

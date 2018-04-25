@@ -4,7 +4,6 @@ var Schema = mongoose.Schema;
 var LimitadoresSchema = new Schema({
 	//responsable de la reparacion
 	fechaPrueba : { type: Date, required: true },
-	profesionalObra: { type: String, required:true },
 	jefeMontaje: { type: Schema.Types.ObjectId, ref: 'Persona' },
 	primerAyudanteMontaje: { type: Schema.Types.ObjectId, ref: 'Persona' },
 	segundoAyudanteMontaje: { type: Schema.Types.ObjectId, ref: 'Persona' },

@@ -147,7 +147,7 @@ exports.persona_update_post = function(req, res, next) {
     );
     Persona.findByIdAndUpdate(req.params.id, persona, function(err, lapersona){
         if (err) { return next(err); }
-        res.redirect(lapersona.id)
+        res.redirect(lapersona.id);
     });
 };
 

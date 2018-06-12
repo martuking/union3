@@ -3,22 +3,24 @@ var Schema = mongoose.Schema;
 
 var LimitadoresSchema = new Schema({
 	//responsable de la reparacion
-	fechaPrueba : { type: Date, required: true },
-	jefeMontaje: { type: Schema.Types.ObjectId, ref: 'Persona' },
-	primerAyudanteMontaje: { type: Schema.Types.ObjectId, ref: 'Persona' },
-	segundoAyudanteMontaje: { type: Schema.Types.ObjectId, ref: 'Persona' },
+	fecha_prueba : { type: Date, required: true },
+	jefe_montaje: { type: Schema.Types.ObjectId, ref: 'Persona' },
+	primer_ayudante_montaje: { type: Schema.Types.ObjectId, ref: 'Persona' },
+	segundo_ayudante_montaje: { type: Schema.Types.ObjectId, ref: 'Persona' },
 
 	//datos cliente
-	empresa: { type: String, required:true },
-	obra: { type: String, required:true },
-	direccion: { type: String, required:true },
-	profesionalObra: { type: String, required:true },
+	empresas_id: { type: Schema.Types.ObjectId, ref: 'Clientes' },
+	empresas_nombre: { type: String, required:true },
+	obras_id: { type: Schema.Types.ObjectId, ref: 'Obras' },
+	obra_nombre: { type: String, required:true },
+	obra_ubicacion: { type: String, required:true },
+	obra_contacto: { type: String, required:true },
 
 	//informacion grua
-	marca: { type: String, required:true },
-	tipo: { type: String, required:true },
-	modelo: { type: String, required:true },
-	numero: { type: String, required:true },
+	gruas_id: { type: Schema.Types.ObjectId, ref: 'Gruas'},
+	gruas_marca: { type: String, required:true },
+	gruas_modelo: { type: String, required:true },
+	gruas_numero_serie: { type: String, required:true },
 
 	//prueba de limitadores
 	//limitador del momento funciona la elevacion y el carro

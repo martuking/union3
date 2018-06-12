@@ -6,21 +6,23 @@ var MontajeSchema = new Schema({
 	//datos montaje y puesta en marcha
 	fechaInstalacion : {type: Date, required: true},
 	profesionalCargo: {type: String, required: true},
-	jefeMontaje: { type: Schema.Types.ObjectId, ref: 'Persona' },
-	primerAyudanteMontaje: { type: Schema.Types.ObjectId, ref: 'Persona' },
-	segundoAyudanteMontaje: { type: Schema.Types.ObjectId, ref: 'Persona' },
+	jefeMontaje: { type: Schema.Types.ObjectId, ref: 'Personas' },
+	primerAyudanteMontaje: { type: Schema.Types.ObjectId, ref: 'Personas' },
+	segundoAyudanteMontaje: { type: Schema.Types.ObjectId, ref: 'Personas' },
 	
 	//datos cliente
-	empresa: {type: String,required:true},
-	obra: {type: String,required:true},
-	direccion: {type: String,required:true},
-	profesionalObra: {type: String,required:true},
+	clientes_id: { type: Schema.Types.ObjectId, ref: 'Clientes'},
+	clientes_nombre: {type: String,required:true},
+	obras_id: { type: Schema.Types.ObjectId, ref: 'Obras'},
+	obras_nombre: {type: String,required:true},
+	obras_ubicacion: {type: String,required:true},
+	obras_contacto: {type: String,required:true},
 
 	//informacion grua:
-	marca: {type: String,required:true},
-	tipo: {type: String,required:true},
-	modelo: {type: String,required:true},
-	numero: {type: String,required:true},
+	gruas_id : { type: Schema.Types.ObjectId, ref: 'Gruas'},
+	gruas_marca: {type: String,required:true},
+	gruas_modelo: {type: String,required:true},
+	gruas_numero_serie: {type: String,required:true},
 
 	//informacion emplazamiento e instalacion electrica
 	areaTrabajo: {type: Boolean,required:true},
@@ -58,4 +60,4 @@ MontajeSchema.virtual('id').get(function(){
 });
 
 
-module.exports = mongoose.model('Montaje', MontajeSchema);
+module.exports = mongoose.model('Montajes', MontajeSchema);

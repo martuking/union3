@@ -1,8 +1,8 @@
-var Reparacion = require('../models/reparacion');
+var Reparaciones = require('../models/reparacion');
 
 // Display list of all reparacions
 exports.reparacion_list = function(req, res) {
-    Reparacion.find({},'obra fechaReparacion').exec(function(err,list_reparaciones){
+    Reparaciones.find({},'obra fechaReparacion').exec(function(err,list_reparaciones){
     	if(err){return next(err);}
     	res.render('reparacion_list',{title: 'Listado de Reparaciones', reparacion_list:list_reparaciones});
     })
@@ -10,28 +10,28 @@ exports.reparacion_list = function(req, res) {
 
 // Display detail page for a specific reparacion
 exports.reparacion_detail = function(req, res) {
-    Reparacion.findById(req.params.id)
+    Reparaciones.findById(req.params.id)
     .populate('reparacion')
     .exec(function(err, reparacionBuscada) {
         if (err) { return next(err); }
         if (reparacionBuscada == null) { // No results.
-            var err = new Error('Reparacion not found');
+            var err = new Error('Reparaciones not found');
             err.status = 404;
             return next(err);
         }
         // Successful, so render
-        res.render('reparacion_detail', { title: 'Reparacion:', reparacion: reparacionBuscada } );
+        res.render('reparacion_detail', { title: 'Reparaciones:', reparacion: reparacionBuscada } );
     });
 };
 
 // Display reparacion create form on GET
 exports.reparacion_create_get = function(req, res) {
-    res.render('reparacion_form', { title: 'Agregar Reparacion'});
+    res.render('reparacion_form', { title: 'Agregar Reparaciones'});
 };
 
 // Handle reparacion create on POST
 exports.reparacion_create_post = function(req, res) {
-    var reparacion = new Reparacion(
+    var reparacion = new Reparaciones(
         {
             fechaReparacion: req.body.fechaReparacion,
             encargado: req.body.encargado,
@@ -60,24 +60,24 @@ exports.reparacion_create_post = function(req, res) {
 
 // Display reparacion delete form on GET
 exports.reparacion_delete_get = function(req, res) {
-    Reparacion.findById(req.params.id).exec(
+    Reparaciones.findById(req.params.id).exec(
         function(err, reparacionBuscada){
             if (err) {return next(err);}
             if (reparacionBuscada == null){
                 res.redirect('/main/reparaciones');
             }
-            res.render('reparacion_delete', { title: 'Eliminar Reparacion', reparacion: reparacionBuscada } );
+            res.render('reparacion_delete', { title: 'Eliminar Reparaciones', reparacion: reparacionBuscada } );
         }   
     )
 };
 
 // Handle reparacion delete on POST
 exports.reparacion_delete_post = function(req, res) {
-    Reparacion.findById(req.body.id).exec(
+    Reparaciones.findById(req.body.id).exec(
         function(err, results){
             if (err) {return next(err);}
             else {
-                Reparacion.findByIdAndRemove(req.body.reparacionid, function eleminarReparacion(err){
+                Reparaciones.findByIdAndRemove(req.body.reparacionid, function eleminarReparacion(err){
                     if (err) { return next(err);}
                     res.redirect('/main/reparaciones')
                 })
@@ -88,23 +88,23 @@ exports.reparacion_delete_post = function(req, res) {
 
 // Display reparacion update form on GET
 exports.reparacion_update_get = function(req, res) {
-    Reparacion.findById(req.params.id)
+    Reparaciones.findById(req.params.id)
     .populate('reparacion')
     .exec(function(err, reparacionBuscada){
         if (err) { return next(err); }
         if (reparacionBuscada == null) { // No results.
-            var err = new Error('Reparacion not found');
+            var err = new Error('Reparaciones not found');
             err.status = 404;
             return next(err);
         }
-        res.render('reparacion_form', { title: 'Actualizar Reparacion', reparaciones:reparacionBuscada });
+        res.render('reparacion_form', { title: 'Actualizar Reparaciones', reparaciones:reparacionBuscada });
     }   
     );
 };
 
 // Handle reparacion update on POST
 exports.reparacion_update_post = function(req, res) {
-    var reparacion = new Reparacion(
+    var reparacion = new Reparaciones(
         {
             fechaReparacion: req.body.fechaReparacion,
             encargado: req.body.encargado,
@@ -125,7 +125,7 @@ exports.reparacion_update_post = function(req, res) {
             _id:req.params.id
         }   
     )
-    Reparacion.findByIdAndUpdate(req.params.id, reparacion, function(err, lareparacion){
+    Reparaciones.findByIdAndUpdate(req.params.id, reparacion, function(err, lareparacion){
         if (err) { return next(err); }
         res.redirect(lareparacion.id)
     })

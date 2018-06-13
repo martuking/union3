@@ -52,4 +52,4 @@ ReparacionSchema.virtual('id').get(function(){
 });
 
 
-module.exports = mongoose.model('Reparaciones', ReparacionSchema);
+module.exports = mongoose.model('Reparacion', ReparacionSchema);

@@ -75,4 +75,4 @@ MontajeSchema.virtual('id').get(function(){
 });
 
 
-module.exports = mongoose.model('Montajes', MontajeSchema);
+module.exports = mongoose.model('Montaje', MontajeSchema);

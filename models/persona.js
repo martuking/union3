@@ -41,4 +41,4 @@ PersonaSchema.virtual('fecha_ingreso_formato').get(function(){
 });
 
 
-module.exports = mongoose.model('Personas', PersonaSchema);
+module.exports = mongoose.model('Persona', PersonaSchema);

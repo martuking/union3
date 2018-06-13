@@ -32,120 +32,120 @@ router.put('/pruebaLimitadores/:id',pruebaLimitadoresController.pruebaLimitadore
 router.delete('/pruebaLimitadores/:id', pruebaLimitadoresController.pruebaLimitadoresDelete);
 
 //rutas para montajes
-router.get('/montaje/', montajeController.pruebalimitadoresList);
-router.get('/montaje/new', montajeController.montajeNew);
-router.post('/montaje/create', montajeController.montajePost);
-router.get('/montaje/:id', montajeController.montajeDetail);
-router.get('/montaje/:id/edit', montajeController.pruebaLimitadiresEdit);
-router.put('/montaje/:id',montajeController.montajeUpdate);
-router.delete('/montaje/:id', montajeController.montajeDelete);
+router.get('/montajes/', montajeController.pruebalimitadoresList);
+router.get('/montajes/new', montajeController.montajeNew);
+router.post('/montajes/create', montajeController.montajePost);
+router.get('/montajes/:id', montajeController.montajeDetail);
+router.get('/montajes/:id/edit', montajeController.pruebaLimitadiresEdit);
+router.put('/montajes/:id',montajeController.montajeUpdate);
+router.delete('/montajes/:id', montajeController.montajeDelete);
 
 //rutas para personas
-router.get('/persona/', personaController.pruebalimitadoresList);
-router.get('/persona/new', personaController.personaNew);
-router.post('/persona/create', personaController.personaPost);
-router.get('/persona/:id', personaController.personaDetail);
-router.get('/persona/:id/edit', personaController.pruebaLimitadiresEdit);
-router.put('/persona/:id',personaController.personaUpdate);
-router.delete('/persona/:id', personaController.personaDelete);
+router.get('/personas/', personaController.pruebalimitadoresList);
+router.get('/personas/new', personaController.personaNew);
+router.post('/personas/create', personaController.personaPost);
+router.get('/personas/:id', personaController.personaDetail);
+router.get('/personas/:id/edit', personaController.pruebaLimitadiresEdit);
+router.put('/personas/:id',personaController.personaUpdate);
+router.delete('/personas/:id', personaController.personaDelete);
 
 //rutas para reparaciones
-router.get('/reparacion/', reparacionController.pruebalimitadoresList);
-router.get('/reparacion/new', reparacionController.reparacionNew);
-router.post('/reparacion/create', reparacionController.reparacionPost);
-router.get('/reparacion/:id', reparacionController.reparacionDetail);
-router.get('/reparacion/:id/edit', reparacionController.pruebaLimitadiresEdit);
-router.put('/reparacion/:id',reparacionController.reparacionUpdate);
-router.delete('/reparacion/:id', reparacionController.reparacionDelete);
+router.get('/reparaciones/', reparacionController.pruebalimitadoresList);
+router.get('/reparaciones/new', reparacionController.reparacionNew);
+router.post('/reparaciones/create', reparacionController.reparacionPost);
+router.get('/reparaciones/:id', reparacionController.reparacionDetail);
+router.get('/reparaciones/:id/edit', reparacionController.pruebaLimitadiresEdit);
+router.put('/reparaciones/:id',reparacionController.reparacionUpdate);
+router.delete('/reparaciones/:id', reparacionController.reparacionDelete);
 
 //rutas para reportes
-router.get('/reporte/', reporteController.pruebalimitadoresList);
-router.get('/reporte/new', reporteController.reporteNew);
-router.post('/reporte/create', reporteController.reportePost);
-router.get('/reporte/:id', reporteController.reporteDetail);
-router.get('/reporte/:id/edit', reporteController.pruebaLimitadiresEdit);
-router.put('/reporte/:id',reporteController.reporteUpdate);
-router.delete('/reporte/:id', reporteController.reporteDelete);
+router.get('/reportes/', reporteController.pruebalimitadoresList);
+router.get('/reportes/new', reporteController.reporteNew);
+router.post('/reportes/create', reporteController.reportePost);
+router.get('/reportes/:id', reporteController.reporteDetail);
+router.get('/reportes/:id/edit', reporteController.pruebaLimitadiresEdit);
+router.put('/reportes/:id',reporteController.reporteUpdate);
+router.delete('/reportes/:id', reporteController.reporteDelete);
 
 //rutas para revisiones
-router.get('/revision/', revisionController.pruebalimitadoresList);
-router.get('/revision/new', revisionController.revisionNew);
-router.post('/revision/create', revisionController.revisionPost);
-router.get('/revision/:id', revisionController.revisionDetail);
-router.get('/revision/:id/edit', revisionController.pruebaLimitadiresEdit);
-router.put('/revision/:id',revisionController.revisionUpdate);
-router.delete('/revision/:id', revisionController.revisionDelete);
+router.get('/revisiones/', revisionController.pruebalimitadoresList);
+router.get('/revisiones/new', revisionController.revisionNew);
+router.post('/revisiones/create', revisionController.revisionPost);
+router.get('/revisiones/:id', revisionController.revisionDetail);
+router.get('/revisiones/:id/edit', revisionController.pruebaLimitadiresEdit);
+router.put('/revisiones/:id',revisionController.revisionUpdate);
+router.delete('/revisiones/:id', revisionController.revisionDelete);
 
 //rutas para adquisiciones
-router.get('/adquisicion/', adquisicionController.pruebalimitadoresList);
-router.get('/adquisicion/new', adquisicionController.adquisicionNew);
-router.post('/adquisicion/create', adquisicionController.adquisicionPost);
-router.get('/adquisicion/:id', adquisicionController.adquisicionDetail);
-router.get('/adquisicion/:id/edit', adquisicionController.pruebaLimitadiresEdit);
-router.put('/adquisicion/:id',adquisicionController.adquisicionUpdate);
-router.delete('/adquisicion/:id', adquisicionController.adquisicionDelete);
+router.get('/adquisiciones/', adquisicionController.pruebalimitadoresList);
+router.get('/adquisiciones/new', adquisicionController.adquisicionNew);
+router.post('/adquisiciones/create', adquisicionController.adquisicionPost);
+router.get('/adquisiciones/:id', adquisicionController.adquisicionDetail);
+router.get('/adquisiciones/:id/edit', adquisicionController.pruebaLimitadiresEdit);
+router.put('/adquisiciones/:id',adquisicionController.adquisicionUpdate);
+router.delete('/adquisiciones/:id', adquisicionController.adquisicionDelete);
 
 //rutas para clientes
-router.get('/cliente/', clienteController.pruebalimitadoresList);
-router.get('/cliente/new', clienteController.clienteNew);
-router.post('/cliente/create', clienteController.clientePost);
-router.get('/cliente/:id', clienteController.clienteDetail);
-router.get('/cliente/:id/edit', clienteController.pruebaLimitadiresEdit);
-router.put('/cliente/:id',clienteController.clienteUpdate);
-router.delete('/cliente/:id', clienteController.clienteDelete);
+router.get('/clientes/', clienteController.pruebalimitadoresList);
+router.get('/clientes/new', clienteController.clienteNew);
+router.post('/clientes/create', clienteController.clientePost);
+router.get('/clientes/:id', clienteController.clienteDetail);
+router.get('/clientes/:id/edit', clienteController.pruebaLimitadiresEdit);
+router.put('/clientes/:id',clienteController.clienteUpdate);
+router.delete('/clientes/:id', clienteController.clienteDelete);
 
 //rutas para contratos
-router.get('/contrato/', contratoController.pruebalimitadoresList);
-router.get('/contrato/new', contratoController.contratoNew);
-router.post('/contrato/create', contratoController.contratoPost);
-router.get('/contrato/:id', contratoController.contratoDetail);
-router.get('/contrato/:id/edit', contratoController.pruebaLimitadiresEdit);
-router.put('/contrato/:id',contratoController.contratoUpdate);
-router.delete('/contrato/:id', contratoController.contratoDelete);
+router.get('/contratos/', contratoController.pruebalimitadoresList);
+router.get('/contratos/new', contratoController.contratoNew);
+router.post('/contratos/create', contratoController.contratoPost);
+router.get('/contratos/:id', contratoController.contratoDetail);
+router.get('/contratos/:id/edit', contratoController.pruebaLimitadiresEdit);
+router.put('/contratos/:id',contratoController.contratoUpdate);
+router.delete('/contratos/:id', contratoController.contratoDelete);
 
 //rutas para gruas
-router.get('/grua/', gruaController.pruebalimitadoresList);
-router.get('/grua/new', gruaController.gruaNew);
-router.post('/grua/create', gruaController.gruaPost);
-router.get('/grua/:id', gruaController.gruaDetail);
-router.get('/grua/:id/edit', gruaController.pruebaLimitadiresEdit);
-router.put('/grua/:id',gruaController.gruaUpdate);
-router.delete('/grua/:id', gruaController.gruaDelete);
+router.get('/gruas/', gruaController.pruebalimitadoresList);
+router.get('/gruas/new', gruaController.gruaNew);
+router.post('/gruas/create', gruaController.gruaPost);
+router.get('/gruas/:id', gruaController.gruaDetail);
+router.get('/gruas/:id/edit', gruaController.pruebaLimitadiresEdit);
+router.put('/gruas/:id',gruaController.gruaUpdate);
+router.delete('/gruas/:id', gruaController.gruaDelete);
 
 //rutas para guias de despacho
-router.get('/guiaDespacho/', guiaDespachoController.pruebalimitadoresList);
-router.get('/guiaDespacho/new', guiaDespachoController.guiaDespachoNew);
-router.post('/guiaDespacho/create', guiaDespachoController.guiaDespachoPost);
-router.get('/guiaDespacho/:id', guiaDespachoController.guiaDespachoDetail);
-router.get('/guiaDespacho/:id/edit', guiaDespachoController.pruebaLimitadiresEdit);
-router.put('/guiaDespacho/:id',guiaDespachoController.guiaDespachoUpdate);
-router.delete('/guiaDespacho/:id', guiaDespachoController.guiaDespachoDelete);
+router.get('/guiasDespacho/', guiaDespachoController.pruebalimitadoresList);
+router.get('/guiasDespacho/new', guiaDespachoController.guiaDespachoNew);
+router.post('/guiasDespacho/create', guiaDespachoController.guiaDespachoPost);
+router.get('/guiasDespacho/:id', guiaDespachoController.guiaDespachoDetail);
+router.get('/guiasDespacho/:id/edit', guiaDespachoController.pruebaLimitadiresEdit);
+router.put('/guiasDespacho/:id',guiaDespachoController.guiaDespachoUpdate);
+router.delete('/guiasDespacho/:id', guiaDespachoController.guiaDespachoDelete);
 
 //rutas para obras
-router.get('/obra/', obraController.pruebalimitadoresList);
-router.get('/obra/new', obraController.obraNew);
-router.post('/obra/create', obraController.obraPost);
-router.get('/obra/:id', obraController.obraDetail);
-router.get('/obra/:id/edit', obraController.pruebaLimitadiresEdit);
-router.put('/obra/:id',obraController.obraUpdate);
-router.delete('/obra/:id', obraController.obraDelete);
+router.get('/obras/', obraController.pruebalimitadoresList);
+router.get('/obras/new', obraController.obraNew);
+router.post('/obras/create', obraController.obraPost);
+router.get('/obras/:id', obraController.obraDetail);
+router.get('/obras/:id/edit', obraController.pruebaLimitadiresEdit);
+router.put('/obras/:id',obraController.obraUpdate);
+router.delete('/obras/:id', obraController.obraDelete);
 
 //rutas para ofertas
-router.get('/oferta/', ofertaController.pruebalimitadoresList);
-router.get('/oferta/new', ofertaController.ofertaNew);
-router.post('/oferta/create', ofertaController.ofertaPost);
-router.get('/oferta/:id', ofertaController.ofertaDetail);
-router.get('/oferta/:id/edit', ofertaController.pruebaLimitadiresEdit);
-router.put('/oferta/:id',ofertaController.ofertaUpdate);
-router.delete('/oferta/:id', ofertaController.ofertaDelete);
+router.get('/ofertas/', ofertaController.pruebalimitadoresList);
+router.get('/ofertas/new', ofertaController.ofertaNew);
+router.post('/ofertas/create', ofertaController.ofertaPost);
+router.get('/ofertas/:id', ofertaController.ofertaDetail);
+router.get('/ofertas/:id/edit', ofertaController.pruebaLimitadiresEdit);
+router.put('/ofertas/:id',ofertaController.ofertaUpdate);
+router.delete('/ofertas/:id', ofertaController.ofertaDelete);
 
 //rutas para ordenes de compra
-router.get('/ordenCompra/', ordenCompraController.pruebalimitadoresList);
-router.get('/ordenCompra/new', ordenCompraController.ordenCompraNew);
-router.post('/ordenCompra/create', ordenCompraController.ordenCompraPost);
-router.get('/ordenCompra/:id', ordenCompraController.ordenCompraDetail);
-router.get('/ordenCompra/:id/edit', ordenCompraController.pruebaLimitadiresEdit);
-router.put('/ordenCompra/:id',ordenCompraController.ordenCompraUpdate);
-router.delete('/ordenCompra/:id', ordenCompraController.ordenCompraDelete);
+router.get('/ordenesCompra/', ordenCompraController.pruebalimitadoresList);
+router.get('/ordenesCompra/new', ordenCompraController.ordenCompraNew);
+router.post('/ordenesCompra/create', ordenCompraController.ordenCompraPost);
+router.get('/ordenesCompra/:id', ordenCompraController.ordenCompraDetail);
+router.get('/ordenesCompra/:id/edit', ordenCompraController.pruebaLimitadiresEdit);
+router.put('/ordenesCompra/:id',ordenCompraController.ordenCompraUpdate);
+router.delete('/ordenesCompra/:id', ordenCompraController.ordenCompraDelete);
 
 module.exports = router;

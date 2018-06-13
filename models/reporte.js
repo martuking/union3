@@ -65,4 +65,4 @@ ReporteSchema.virtual('fecha_formato').get(function(){
 	return moment(this.fecha).format('MMMM Do, YYYY');
 });
 
-module.exports = mongoose.model('Reportes', ReporteSchema);
+module.exports = mongoose.model('Reporte', ReporteSchema);

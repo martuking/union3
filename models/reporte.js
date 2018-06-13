@@ -4,19 +4,31 @@ var moment = require('moment');
 
 var ReporteSchema = new Schema({
 
+	//datos persona
+	persona:{
+		id: { type: Schema.Types.ObjectId, ref: 'Clientes' },
+		nombre: { type: String, required: true },
+		apellido: { type: String, required: true }
+	},
 	//datos cliente
-	clientes_id: { type: Schema.Types.ObjectId, ref: 'Clientes' },
-	clientes_nombre: { type: String, required:true },
-	obras_id: { type: Schema.Types.ObjectId, ref: 'Obras' },
-	obras_nombre: { type: String, required:true },
-	obras_ubicacion: { type: String, required:true },
-	obras_contacto: { type: String, required:true },
-
+	cliente:{
+		id: { type: Schema.Types.ObjectId, ref: 'Clientes' },
+		nombre: { type: String, required: true }
+	},
+	//datos obra
+	obra:{
+		id: { type: Schema.Types.ObjectId, ref: 'Obras' },
+		nombre: { type: String, required:true },
+		direccion: { type: String, required:true },
+		contacto: { type: String, required:true }
+	},
 	//informacion grua
-	gruas_id: { type: Schema.Types.ObjectId, ref: 'Gruas'},
-	gruas_marca: { type: String, required:true },
-	gruas_modelo: { type: String, required:true },
-	gruas_numero_serie: { type: String, required:true },
+	grua:{
+		id: { type: Schema.Types.ObjectId, ref: 'Gruas'},
+		marca: { type: String, required:true },
+		modelo: { type: String, required:true },
+		numeroSerie: { type: String, required:true },
+	},
 
 	//informacion report
 	fecha: { type: Date, required:true },

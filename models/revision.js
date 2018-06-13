@@ -5,30 +5,49 @@ var RevisionSchema = new Schema({
 
 	//revision e inspeccion
 	fechaInspeccion: { type: Date, required: true },
-	encargadoMantencion: { type: Schema.Types.ObjectId, ref: 'Personas' },
-	ayudanteMantencion: { type: Schema.Types.ObjectId, ref: 'Personas' },
-	gruero: { type: Schema.Types.ObjectId, ref: 'Personas' },
+	personas:[
+		{
+			id: { type: Schema.Types.ObjectId, ref: 'Persona' },
+			detalle: {
+				nombre: { type: String, required:true },
+				apellido: { type: String, required:true },
+				cargo: { type: String, required:true }
+			}  
+		}
+	],
 
 	//datos cliente	
-	clientes_id: { type: Schema.Types.ObjectId, ref: 'Clientes' },
-	clientes_nombre: { type: String, required:true },
-	obras_id: { type: Schema.Types.ObjectId, ref: 'Obras' },
-	obras_nombre: { type: String, required:true },
-	obras_ubicacion: { type: String, required:true },
-	obras_contacto: { type: String, required:true },
+	cliente:{
+		id: { type: Schema.Types.ObjectId, ref: 'Clientes' },
+		nombre: { type: String, required:true }
+	},
+	//datos obra
+	obra:{
+		id: { type: Schema.Types.ObjectId, ref: 'Obras' },
+		nombre: { type: String, required:true },
+		ubicacion: { type: String, required:true },
+		contacto: { type: String, required:true }		
+	},
 
 	//informacion grua
-	gruas_id: { type: Schema.Types.ObjectId, ref: 'Gruas' },
-	gruas_marca: { type: String, required:true },
-	gruas_modelo: { type: String, required:true },
-	gruas_numero_serie: { type: String, required:true },
-
-	//datos montajes y revisiones anteriores
-	fechaMontaje: { type: Date, required: true },
-	montajes_id: {type: Schema.Types.ObjectId, ref: 'Montajes' },
-	fechaUltimaMantencion: { type: Date, required: true },
-	revision_id: { type: Schema.Types.ObjectId, ref: 'Revisiones' },
-
+	grua:{
+		id: { type: Schema.Types.ObjectId, ref: 'Gruas' },
+		marca: { type: String, required:true },
+		modelo: { type: String, required:true },
+		numeroSerie: { type: String, required:true }
+	},
+	//datos revisiones anteriores
+	revisiones:[
+		{
+			id: { type: Schema.Types.ObjectId, ref: 'Revisiones' },
+			fechaUltimaMantencion: { type: Date, required: true }
+		}
+	],
+	//datos montaje 
+	montaje:{
+		id: {type: Schema.Types.ObjectId, ref: 'Montajes' },
+		fechaMontaje: { type: Date, required: true }
+	},
 	//operaciones a realizar
 	//engrase
 	soportePunto: { type: String, required:true },

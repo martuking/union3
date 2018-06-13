@@ -1,21 +1,28 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var ClientesSchema = new Schema({
+var ClienteSchema = new Schema({
     
     nombre: { type: String, required: true },
     rut: { type: String, required: true },
     giro: { type: String, required: true },
     status: { type: String, required: true },
-    representante_legal: { type: String, required: true },
-    fecha_registro: { type: Date, required: true },
-    oficinas: [
+    fechaRegistro: { type: Date, required: true },
+    representanteLegal:[
         {
-            direccion: { type: String, required: true },
-            telefonos: [ { type: Number, required } ]
+            nombre: { type: String, required: true },
+            apellido: { type: String, required: true },
+            rut: { type: String, required: true }
         }
     ],
-    personas_contacto:[
+    oficinas:[
+        {
+            direccion: { type: String, required: true },
+            comuna: { type: String, required: true },
+            telefonos: [ { type: Number, required: true } ]
+        }
+    ],
+    personasContacto:[
         {
             nombre: { type: String, required: true },
             apellido: { type: String, required: true },
@@ -27,4 +34,4 @@ var ClientesSchema = new Schema({
     
 });
 
-module.exports = mongoose.model('Clientes', ClientesSchema);
+module.exports = mongoose.model('Cliente', ClienteSchema);

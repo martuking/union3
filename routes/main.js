@@ -8,7 +8,7 @@ var persona_controller = require('../controllers/personaController');
 var reparacion_controller = require('../controllers/reparacionController');
 var reporte_controller = require('../controllers/reporteController');
 var revision_controller = require('../controllers/revisionController');
-var index_controller = require('../helpers/index')
+var index_controller = require('../helpers/index');
 
 /// LIMITADORES ROUTES ///
 

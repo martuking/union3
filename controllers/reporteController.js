@@ -2,15 +2,15 @@ var Reportes = require('../models/reporte');
 var mongoose = require('mongoose');
 
 // Display list of all reportes
-exports.reporte_list = function(req, res) {
-    Reportes.find({},'empresa obra').exec(function(err,list_reportes){
+exports.reporteList = function(req, res) {
+    Reportes.find({},'empresa obra').exec(function(err,reportesList){
     	if(err){return next(err);}
-    	res.render('reporte_list',{title: 'Listado de Reportes', reporte_list:list_reportes});
+    	res.send(reportesList);
     })
 };
 
 // Display detail page for a specific reporte
-exports.reporte_detail = function(req, res) {
+exports.reporteShow = function(req, res) {
     Reportes.findById(req.params.id)
     .populate('reporte')
     .exec(function(err, reporteBuscado) {
@@ -21,17 +21,17 @@ exports.reporte_detail = function(req, res) {
             return next(err);
         }
         // Successful, so render
-        res.render('reporte_detail', { title: 'Reportes:', reporte: reporteBuscado } );
+        res.send(reporteBuscado);
     });
 };
 
 // Display reporte create form on GET
-exports.reporte_create_get = function(req, res) {
+exports.reporteNew = function(req, res) {
     res.render('reporte_form', { title: 'Agregar Reportes'});
 };
 
 // Handle reporte create on POST
-exports.reporte_create_post = function(req, res) {
+exports.reporteCreate = function(req, res) {
     var reporte = new Reportes(
         {
             empresa: req.body.empresa,
@@ -61,32 +61,19 @@ exports.reporte_create_post = function(req, res) {
     reporte.save(function (err) {
         if (err) { return next(err); }
            // Successful - redirect to new record.
-           res.redirect(reporte.id);
+           res.send(reporte);
         });
 };
 
-// Display reporte delete form on GET
-exports.reporte_delete_get = function(req, res) {
-    Reportes.findById(req.params.id).exec(
-        function(err, reporteBuscado){
-            if (err) {return next(err);}
-            if (reporteBuscado == null){
-                res.redirect('/main/reportes');
-            }
-            res.render('reporte_delete', { title: 'Eliminar Reportes', reporte: reporteBuscado } );
-        }   
-    )
-};
-
 // Handle reporte delete on POST
-exports.reporte_delete_post = function(req, res) {
+exports.reporteDelete = function(req, res) {
     Reportes.findById(req.body.id).exec(
         function(err, results){
             if (err) {return next(err);}
             else {
                 Reportes.findByIdAndRemove(req.body.reporteid, function eleminarReporte(err){
                     if (err) { return next(err);}
-                    res.redirect('/main/reportes')
+                    res.send("eliminado el reporte", req.body.id);
                 })
             }
         }
@@ -94,7 +81,7 @@ exports.reporte_delete_post = function(req, res) {
 };
 
 // Display reporte update form on GET
-exports.reporte_update_get = function(req, res) {
+exports.reporteEdit = function(req, res) {
     Reportes.findById(req.params.id)
     .populate('reporte')
     .exec(function(err, reporteBuscado){
@@ -110,7 +97,7 @@ exports.reporte_update_get = function(req, res) {
 };
 
 // Handle reporte update on POST
-exports.reporte_update_post = function(req, res) {
+exports.reporteUpdate = function(req, res) {
     var reporte = new Reportes(
         {
             empresa: req.body.empresa,
@@ -140,6 +127,6 @@ exports.reporte_update_post = function(req, res) {
     )
     Reportes.findByIdAndUpdate(req.params.id, reporte, function(err, elreporte){
         if (err) { return next(err); }
-        res.redirect(elreporte.id)
+        res.send(elreporte);
     })
 };

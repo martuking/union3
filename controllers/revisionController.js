@@ -1,15 +1,15 @@
 var Revisiones = require('../models/revision');
 
 // Display list of all revisions
-exports.revision_list = function(req, res) {
-    Revisiones.find({},'obra fechaInspeccion').exec(function(err,list_revisiones){
+exports.revisionList = function(req, res) {
+    Revisiones.find({},'obra fechaInspeccion').exec(function(err,revisionesList){
     	if(err){return next(err);}
-    	res.render('revision_list',{title: 'Listado de Revisiones', revision_list:list_revisiones});
+    	res.send(revisionesList);
     })
 };
 
 // Display detail page for a specific revision
-exports.revision_detail = function(req, res) {
+exports.revisionShow = function(req, res) {
     Revisiones.findById(req.params.id)
     .populate('revision')
     .exec(function(err, revisionBuscada) {
@@ -20,17 +20,17 @@ exports.revision_detail = function(req, res) {
             return next(err);
         }
         // Successful, so render
-        res.render('revision_detail', { title: 'Revisiones:', revision: revisionBuscada } );
+        res.send(revisionBuscada);
     });
 };
 
 // Display revision create form on GET
-exports.revision_create_get = function(req, res) {
+exports.revisionNew = function(req, res) {
     res.render('revision_form', { title: 'Agregar Revisiones'});
 };
 
 // Handle revision create on POST
-exports.revision_create_post = function(req, res) {
+exports.revisionCreate = function(req, res) {
     var revision = new Revisiones({
         fechaInspeccion: req.body.fechaInspeccion,
         encargadoMantencion: req.body.encargadoMantencion,
@@ -90,32 +90,20 @@ exports.revision_create_post = function(req, res) {
     revision.save(function (err) {
         if (err) { return next(err); }
            // Successful - redirect to new record.
-           res.redirect(revision.id);
+           res.send(revision);
         });
 };
 
-// Display revision delete form on GET
-exports.revision_delete_get = function(req, res) {
-    Revisiones.findById(req.params.id).exec(
-        function(err, revisionBuscada){
-            if (err) {return next(err);}
-            if (revisionBuscada == null){
-                res.redirect('/main/revisiones');
-            }
-            res.render('revision_delete', { title: 'Eliminar Revisiones', revision: revisionBuscada } );
-        }   
-    );
-};
 
 // Handle revision delete on POST
-exports.revision_delete_post = function(req, res) {
+exports.revisionDelete = function(req, res) {
     Revisiones.findById(req.body.id).exec(
         function(err, results){
             if (err) {return next(err);}
             else {
                 Revisiones.findByIdAndRemove(req.body.revisionid, function eleminarRevision(err){
                     if (err) { return next(err);}
-                    res.redirect('/main/revisiones')
+                    res.send('se elimino ', req.body.id);
                 })
             }
         }
@@ -123,7 +111,7 @@ exports.revision_delete_post = function(req, res) {
 };
 
 // Display revision update form on GET
-exports.revision_update_get = function(req, res) {
+exports.revisionEdit = function(req, res) {
     Revisiones.findById(req.params.id)
     .populate('revision')
     .exec(function(err, revisionBuscada){
@@ -139,7 +127,7 @@ exports.revision_update_get = function(req, res) {
 };
 
 // Handle revision update on POST
-exports.revision_update_post = function(req, res) {
+exports.revisionUpdate = function(req, res) {
     var revision = new Revisiones({
         fechaInspeccion: req.body.fechaInspeccion,
         encargadoMantencion: req.body.encargadoMantencion,
@@ -199,6 +187,6 @@ exports.revision_update_post = function(req, res) {
     });
     Revisiones.findByIdAndUpdate(req.params.id, revision, function(err, larevision){
         if (err) { return next(err); }
-        res.redirect(larevision.id);
+        res.send(larevision);
     });
 };

@@ -94,7 +94,7 @@ exports.montajeDelete = function(req, res) {
     )
 };
 
-// Display montaje update form on GET
+// MontajeEdit
 exports.montajeEdit = function(req, res) {
     Montaje.findById(req.params.id)
     .populate('montaje')
@@ -110,7 +110,7 @@ exports.montajeEdit = function(req, res) {
     );
 };
 
-// Handle montaje update on POST
+// MontajeUpdate
 exports.montajeUpdate = function(req, res) {
     var montaje = new Montaje(
         {

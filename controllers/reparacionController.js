@@ -1,37 +1,37 @@
-var Reparaciones = require('../models/reparacion');
+var Reparacion = require('../models/reparacion');
 
 // Display list of all reparacions
-exports.reparacion_list = function(req, res) {
-    Reparaciones.find({},'obra fechaReparacion').exec(function(err,list_reparaciones){
+exports.reparacionList = function(req, res) {
+    Reparacion.find({},'obra fechaReparacion').exec(function(err,reparacionesList){
     	if(err){return next(err);}
-    	res.render('reparacion_list',{title: 'Listado de Reparaciones', reparacion_list:list_reparaciones});
+    	res.send(reparacionesList);
     })
 };
 
 // Display detail page for a specific reparacion
-exports.reparacion_detail = function(req, res) {
-    Reparaciones.findById(req.params.id)
+exports.reparacionShow = function(req, res) {
+    Reparacion.findById(req.params.id)
     .populate('reparacion')
     .exec(function(err, reparacionBuscada) {
         if (err) { return next(err); }
         if (reparacionBuscada == null) { // No results.
-            var err = new Error('Reparaciones not found');
+            var err = new Error('Reparacion not found');
             err.status = 404;
             return next(err);
         }
         // Successful, so render
-        res.render('reparacion_detail', { title: 'Reparaciones:', reparacion: reparacionBuscada } );
+        res.send(reparacionBuscada);
     });
 };
 
 // Display reparacion create form on GET
-exports.reparacion_create_get = function(req, res) {
-    res.render('reparacion_form', { title: 'Agregar Reparaciones'});
+exports.reparacionNew = function(req, res) {
+    res.render('reparacion_form', { title: 'Agregar Reparacion'});
 };
 
 // Handle reparacion create on POST
-exports.reparacion_create_post = function(req, res) {
-    var reparacion = new Reparaciones(
+exports.reparacionCreate = function(req, res) {
+    var reparacion = new Reparacion(
         {
             fechaReparacion: req.body.fechaReparacion,
             encargado: req.body.encargado,
@@ -54,32 +54,19 @@ exports.reparacion_create_post = function(req, res) {
     reparacion.save(function (err) {
         if (err) { return next(err); }
            // Successful - redirect to new record.
-           res.redirect(reparacion.id);
+           res.send(reparacion);
         });
 };
 
-// Display reparacion delete form on GET
-exports.reparacion_delete_get = function(req, res) {
-    Reparaciones.findById(req.params.id).exec(
-        function(err, reparacionBuscada){
-            if (err) {return next(err);}
-            if (reparacionBuscada == null){
-                res.redirect('/main/reparaciones');
-            }
-            res.render('reparacion_delete', { title: 'Eliminar Reparaciones', reparacion: reparacionBuscada } );
-        }   
-    )
-};
-
 // Handle reparacion delete on POST
-exports.reparacion_delete_post = function(req, res) {
-    Reparaciones.findById(req.body.id).exec(
+exports.reparacionDelete = function(req, res) {
+    Reparacion.findById(req.body.id).exec(
         function(err, results){
             if (err) {return next(err);}
             else {
-                Reparaciones.findByIdAndRemove(req.body.reparacionid, function eleminarReparacion(err){
+                Reparacion.findByIdAndRemove(req.body.reparacionid, function eleminarReparacion(err){
                     if (err) { return next(err);}
-                    res.redirect('/main/reparaciones')
+                    res.send("eliminada reparacion ", req.body.id);
                 })
             }
         }
@@ -87,24 +74,24 @@ exports.reparacion_delete_post = function(req, res) {
 };
 
 // Display reparacion update form on GET
-exports.reparacion_update_get = function(req, res) {
-    Reparaciones.findById(req.params.id)
+exports.reparacionEdit = function(req, res) {
+    Reparacion.findById(req.params.id)
     .populate('reparacion')
     .exec(function(err, reparacionBuscada){
         if (err) { return next(err); }
         if (reparacionBuscada == null) { // No results.
-            var err = new Error('Reparaciones not found');
+            var err = new Error('Reparacion not found');
             err.status = 404;
             return next(err);
         }
-        res.render('reparacion_form', { title: 'Actualizar Reparaciones', reparaciones:reparacionBuscada });
+        res.render('reparacion_form', { title: 'Actualizar Reparacion', reparaciones:reparacionBuscada });
     }   
     );
 };
 
 // Handle reparacion update on POST
-exports.reparacion_update_post = function(req, res) {
-    var reparacion = new Reparaciones(
+exports.reparacionUpdate = function(req, res) {
+    var reparacion = new Reparacion(
         {
             fechaReparacion: req.body.fechaReparacion,
             encargado: req.body.encargado,
@@ -125,8 +112,8 @@ exports.reparacion_update_post = function(req, res) {
             _id:req.params.id
         }   
     )
-    Reparaciones.findByIdAndUpdate(req.params.id, reparacion, function(err, lareparacion){
+    Reparacion.findByIdAndUpdate(req.params.id, reparacion, function(err, lareparacion){
         if (err) { return next(err); }
-        res.redirect(lareparacion.id)
+        res.send(lareparacion);
     })
 };

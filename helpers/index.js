@@ -1,4 +1,4 @@
-var limitadores = require('../models/limitadores');
+var limitadores = require('../models/pruebaLimitadores');
 var montaje = require('../models/montaje');
 var persona = require('../models/persona');
 var reparacion = require('../models/reparacion');

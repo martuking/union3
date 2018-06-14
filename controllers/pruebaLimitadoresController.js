@@ -1,37 +1,37 @@
-var Limitadores = require('../models/limitadores');
+var PruebaLimitadores = require('../models/pruebaPruebaLimitadores');
 
-// Display list of all limitadoress
-exports.limitadores_list = function(req, res) {
-    Limitadores.find({},'fechaPrueba obra').exec(function(err,list_limitadores){
+// pruebaLimitadoresList
+exports.pruebaLimitadoresList = function(req, res) {
+    PruebaLimitadores.find({},'fechaPrueba obra').exec(function(err,pruebaLimitadoresList){
     	if(err){return next(err);}
-    	res.render('limitadores_list',{title: 'Listado de Pruebas Limitadores', limitadores_list:list_limitadores});
+    	res.send(pruebaLimitadoresList);
     });
 };
 
-// Display detail page for a specific limitadores
-exports.limitadores_detail = function(req, res) {
-    Limitadores.findById(req.params.id)
-    .populate('limitadores')
-    .exec(function(err, limitadoresBuscada) {
+// pruebaLimitadoresShow
+exports.pruebaLimitadoresShow = function(req, res) {
+    PruebaLimitadores.findById(req.params.id)
+    .populate('pruebaLimitadores')
+    .exec(function(err, pruebaLimitadoresBuscada) {
         if (err) { return next(err); }
-        if (limitadoresBuscada == null) { // No results.
-            var err = new Error('Limitadores not found');
+        if (pruebaLimitadoresBuscada == null) { // No results.
+            var err = new Error('PruebaLimitadores not found');
             err.status = 404;
             return next(err);
         }
         // Successful, so render
-        res.render('limitadores_detail', { title: 'Prueba de Limitadores:', limitadores: limitadoresBuscada } );
+        res.send(pruebaLimitadoresBuscada);
     });
 };
 
-// Display limitadores create form on GET
-exports.limitadores_create_get = function(req, res) {
-    res.render('limitadores_form', { title: 'Agregar Prueba de Limitadores'});
+// pruebaLimitadoresNew
+exports.pruebaLimitadoresNew = function(req, res) {
+    res.render('pruebaLimitadores_form', { title: 'Agregar Prueba de PruebaLimitadores'});
 };
 
-// Handle limitadores create on POST
-exports.limitadores_create_post = function(req, res) {
-    var limitadores = new Limitadores(
+// pruebaLimitadoresCreate
+exports.pruebaLimitadoresCreate = function(req, res) {
+    var pruebaLimitadores = new PruebaLimitadores(
         {
             fechaPrueba: req.body.fechaPrueba,
             profesionalObra: req.body.profesionalObra,
@@ -58,60 +58,47 @@ exports.limitadores_create_post = function(req, res) {
             giro2: req.body.porcentajeZona
         }   
     );
-    limitadores.save(function (err) {
+    pruebaLimitadores.save(function (err) {
         if (err) { return next(err); }
            // Successful - redirect to new record.
-           res.redirect(limitadores.id);
+           res.send(pruebaLimitadores);
         });
 };
 
-// Display limitadores delete form on GET
-exports.limitadores_delete_get = function(req, res) {
-    Limitadores.findById(req.params.id).exec(
-        function(err, limitadoresBuscados){
-            if (err) {return next(err);}
-            if (limitadoresBuscados == null){
-                res.redirect('/main/limitadores');
-            }
-            res.render('limitadores_delete', { title: 'Eliminar Prueba de Limitadores', limitadores: limitadoresBuscados } );
-        }   
-    );
-};
-
-// Handle limitadores delete on POST
-exports.limitadores_delete_post = function(req, res) {
-    Limitadores.findById(req.body.id).exec(
+// pruebaLimitadoresDelete
+exports.pruebaLimitadoresDelete = function(req, res) {
+    PruebaLimitadores.findById(req.body.id).exec(
         function(err, results){
             if (err) {return next(err);}
             else {
-                Limitadores.findByIdAndRemove(req.body.limitadoresid, function eleminarLimitadores(err){
+                PruebaLimitadores.findByIdAndRemove(req.body.pruebaLimitadoresid, function eleminarPruebaLimitadores(err){
                     if (err) { return next(err);}
-                    res.redirect('/main/limitadores');
-                })
+                    res.send("eliminado prueba de limitadores", req.body.id);
+                });
             }
         }
     );
 };
 
-// Display limitadores update form on GET
-exports.limitadores_update_get = function(req, res) {
-    Limitadores.findById(req.params.id)
+// pruebaLimitadoresEdit
+exports.pruebaLimitadoresEdit = function(req, res) {
+    PruebaLimitadores.findById(req.params.id)
     .populate('persona')
-    .exec(function(err, limitadoresBuscados){
+    .exec(function(err, pruebaLimitadoresBuscados){
         if (err) { return next(err); }
-        if (limitadoresBuscados == null) { // No results.
+        if (pruebaLimitadoresBuscados == null) { // No results.
             var err = new Error('Limitador not found');
             err.status = 404;
             return next(err);
         }
-        res.render('limitadores_form', { title: 'Actualizar Prueba de Limitadores', limitadores:limitadoresBuscados });
+        res.render('pruebaLimitadores_form', { title: 'Actualizar Prueba de PruebaLimitadores', pruebaLimitadores:pruebaLimitadoresBuscados });
     }   
     );
 };
 
-// Handle limitadores update on POST
-exports.limitadores_update_post = function(req, res) {
-    var limitadores = new Limitadores(
+// pruebaLimitadoresUpdate
+exports.pruebaLimitadoresUpdate = function(req, res) {
+    var pruebaLimitadores = new PruebaLimitadores(
         {
             fechaPrueba: req.body.fechaPrueba,
             profesionalObra: req.body.profesionalObra,
@@ -139,8 +126,8 @@ exports.limitadores_update_post = function(req, res) {
             _id:req.params.id
         }   
     );
-    Limitadores.findByIdAndUpdate(req.params.id, limitadores, function(err, elLimitador){
+    PruebaLimitadores.findByIdAndUpdate(req.params.id, pruebaLimitadores, function(err, elLimitador){
         if (err) { return next(err); }
-        res.redirect(elLimitador.id);
+        res.send(pruebaLimitadores);
     });
 };

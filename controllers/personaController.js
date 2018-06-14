@@ -36,7 +36,18 @@ exports.personaNew = function(req, res, next) {
 
 // PersonaEdit
 exports.personaEdit = function(req, res, next) {
-    res.render('persona_form', { title: 'Agregar Persona'});
+    Persona.findById(req.params.id)
+    .populate('persona')
+    .exec(function(err, PersonaBuscada){
+        if (err) { return next(err); }
+        if (PersonaBuscada == null) { // No results.
+            var err = new Error('Persona not found');
+            err.status = 404;
+            return next(err);
+        }
+        res.render('persona_form', { title: 'Actualizar Persona', personas:PersonaBuscada });
+    }   
+    );
 };
 
 
@@ -72,6 +83,7 @@ exports.personaCreate = function(req, res, next) {
     persona.save(function (err) {
         if (err) { return next(err); }
         });
+        res.send(persona);
 };
 
 
@@ -83,6 +95,7 @@ exports.personaDelete = function(req, res, next) {
             else {
                 Persona.findByIdAndRemove(req.body.personaid, function eleminarPersona(err){
                     if (err) { return next(err);}
+                    res.send("persona eliminada id: ", req.body.id);
                 });
             }
         }

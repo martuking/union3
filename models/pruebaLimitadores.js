@@ -64,8 +64,8 @@ var pruebaLimitadoresSchema = new Schema({
 	//si se toma como 0° el norte
 });
 
-LimitadoresSchema.virtual('id').get(function(){
-	return '/main/limitadores/' + this._id;
+pruebaLimitadoresSchema.virtual('id').get(function(){
+	return '/api/pruebaLimitadores/' + this._id;
 });
 
 module.exports = mongoose.model('pruebaLimitadores', pruebaLimitadoresSchema);

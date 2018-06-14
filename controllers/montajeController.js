@@ -1,37 +1,37 @@
-var Montajes = require('../models/montaje');
+var Montaje = require('../models/montaje');
 
-// Display list of all montajes
-exports.montaje_list = function(req, res) {
-    Montajes.find({},'obra fechaInstalacion').exec(function(err,list_montajes){
+// MontajesList
+exports.montajeList = function(req, res) {
+    Montaje.find({},'obra fechaInstalacion').exec(function(err,montajesList){
     	if(err){return next(err);}
-    	res.render('montaje_list',{title: 'Listado de Montajes', montaje_list:list_montajes});
+        res.send(montajesList);
     })
 };
 
-// Display detail page for a specific montaje
-exports.montaje_detail = function(req, res) {
-    Montajes.findById(req.params.id)
+// MontajeShow
+exports.montajeShow = function(req, res) {
+    Montaje.findById(req.params.id)
     .populate('montaje')
     .exec(function(err, montajeBuscado) {
         if (err) { return next(err); }
         if (montajeBuscado == null) { // No results.
-            var err = new Error('Montajes not found');
+            var err = new Error('Montaje not found');
             err.status = 404;
             return next(err);
         }
         // Successful, so render
-        res.render('montaje_detail', { title: 'Montajes:', montaje: montajeBuscado } );
+        res.send(montajeBuscado);
     });
 };
 
-// Display montaje create form on GET
-exports.montaje_create_get = function(req, res) {
-    res.render('montaje_form', { title: 'Agregar Montajes'}); 
+// MontajeNew
+exports.montajeNew = function(req, res) {
+    res.render('montaje_form', { title: 'Agregar Montaje'}); 
 };
 
-// Handle montaje create on POST
-exports.montaje_create_post = function(req, res) {
-    var montaje = new Montajes(
+// MontajeCreate
+exports.montajeCreate = function(req, res) {
+    var montaje = new Montaje(
         {
             fechaInstalacion: req.body.fechaInstalacion,
             profesionalCargo: req.body.profesionalCargo,
@@ -75,32 +75,19 @@ exports.montaje_create_post = function(req, res) {
     montaje.save(function (err) {
         if (err) { return next(err); }
            // Successful - redirect to new record.
-           res.redirect(montaje.id);
+           res.send(montaje);
         });
 };
 
-// Display montaje delete form on GET
-exports.montaje_delete_get = function(req, res) {
-    Montajes.findById(req.params.id).exec(
-        function(err, montajeBuscado){
-            if (err) {return next(err);}
-            if (montajeBuscado == null){
-                res.redirect('/main/montaje');
-            }
-            res.render('montaje_delete', { title: 'Eliminar Montajes', montaje: montajeBuscado } );
-        }   
-    )
-};
-
-// Handle montaje delete on POST
-exports.montaje_delete_post = function(req, res) {
-    Montajes.findById(req.body.id).exec(
+// MontajeDelete
+exports.montajeDelete = function(req, res) {
+    Montaje.findById(req.body.id).exec(
         function(err, results){
             if (err) {return next(err);}
             else {
-                Montajes.findByIdAndRemove(req.body.montajeid, function eliminarMontaje(err){
+                Montaje.findByIdAndRemove(req.body.montajeid, function eliminarMontaje(err){
                     if (err) { return next(err);}
-                    res.redirect('/main/montajes')
+                    res.send("eliminado montaje ", req.body.id);
                 })
             }
         }
@@ -108,24 +95,24 @@ exports.montaje_delete_post = function(req, res) {
 };
 
 // Display montaje update form on GET
-exports.montaje_update_get = function(req, res) {
-    Montajes.findById(req.params.id)
+exports.montajeEdit = function(req, res) {
+    Montaje.findById(req.params.id)
     .populate('montaje')
     .exec(function(err, montajeBuscado){
         if (err) { return next(err); }
         if (montajeBuscado == null) { // No results.
-            var err = new Error('Montajes not found');
+            var err = new Error('Montaje not found');
             err.status = 404;
             return next(err);
         }
-        res.render('montaje_form', { title: 'Actualizar Montajes', montajes:montajeBuscado });
+        res.render('montaje_form', { title: 'Actualizar Montaje', montajes:montajeBuscado });
     }   
     );
 };
 
 // Handle montaje update on POST
-exports.montaje_update_post = function(req, res) {
-    var montaje = new Montajes(
+exports.montajeUpdate = function(req, res) {
+    var montaje = new Montaje(
         {
             fechaInstalacion: req.body.fechaInstalacion,
             profesionalCargo: req.body.profesionalCargo,
@@ -167,8 +154,8 @@ exports.montaje_update_post = function(req, res) {
             _id:req.params.id
         }   
     );
-    Montajes.findByIdAndUpdate(req.params.id, montaje, function(err, elmontaje){
+    Montaje.findByIdAndUpdate(req.params.id, montaje, function(err, elmontaje){
         if (err) { return next(err); }
-        res.redirect(elmontaje.id)
+        res.send(elmontaje);
     })
 };

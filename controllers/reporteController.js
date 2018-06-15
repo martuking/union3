@@ -1,9 +1,9 @@
-var Reportes = require('../models/reporte');
+var Reporte = require('../models/reporte');
 var mongoose = require('mongoose');
 
 // Display list of all reportes
 exports.reporteList = function(req, res) {
-    Reportes.find({},'empresa obra').exec(function(err,reportesList){
+    Reporte.find({},'empresa obra').exec(function(err,reportesList){
     	if(err){return next(err);}
     	res.send(reportesList);
     })
@@ -11,12 +11,12 @@ exports.reporteList = function(req, res) {
 
 // Display detail page for a specific reporte
 exports.reporteShow = function(req, res) {
-    Reportes.findById(req.params.id)
+    Reporte.findById(req.params.id)
     .populate('reporte')
     .exec(function(err, reporteBuscado) {
         if (err) { return next(err); }
         if (reporteBuscado==null) { // No results.
-            var err = new Error('Reportes not found');
+            var err = new Error('Reporte not found');
             err.status = 404;
             return next(err);
         }
@@ -27,12 +27,12 @@ exports.reporteShow = function(req, res) {
 
 // Display reporte create form on GET
 exports.reporteNew = function(req, res) {
-    res.render('reporte_form', { title: 'Agregar Reportes'});
+    res.render('reporte_form', { title: 'Agregar Reporte'});
 };
 
 // Handle reporte create on POST
 exports.reporteCreate = function(req, res) {
-    var reporte = new Reportes(
+    var reporte = new Reporte(
         {
             empresa: req.body.empresa,
             obra: req.body.obra,
@@ -67,11 +67,11 @@ exports.reporteCreate = function(req, res) {
 
 // Handle reporte delete on POST
 exports.reporteDelete = function(req, res) {
-    Reportes.findById(req.body.id).exec(
+    Reporte.findById(req.body.id).exec(
         function(err, results){
             if (err) {return next(err);}
             else {
-                Reportes.findByIdAndRemove(req.body.reporteid, function eleminarReporte(err){
+                Reporte.findByIdAndRemove(req.body.reporteid, function eleminarReporte(err){
                     if (err) { return next(err);}
                     res.send("eliminado el reporte", req.body.id);
                 })
@@ -82,23 +82,23 @@ exports.reporteDelete = function(req, res) {
 
 // Display reporte update form on GET
 exports.reporteEdit = function(req, res) {
-    Reportes.findById(req.params.id)
+    Reporte.findById(req.params.id)
     .populate('reporte')
     .exec(function(err, reporteBuscado){
         if (err) { return next(err); }
         if (reporteBuscado == null) { // No results.
-            var err = new Error('Reportes not found');
+            var err = new Error('Reporte not found');
             err.status = 404;
             return next(err);
         }
-        res.render('reporte_form', { title: 'Actualizar Reportes', reportes:reporteBuscado });
+        res.render('reporte_form', { title: 'Actualizar Reporte', reportes:reporteBuscado });
     }   
     );
 };
 
 // Handle reporte update on POST
 exports.reporteUpdate = function(req, res) {
-    var reporte = new Reportes(
+    var reporte = new Reporte(
         {
             empresa: req.body.empresa,
             obra: req.body.obra,
@@ -125,7 +125,7 @@ exports.reporteUpdate = function(req, res) {
             _id:req.params.id
         }   
     )
-    Reportes.findByIdAndUpdate(req.params.id, reporte, function(err, elreporte){
+    Reporte.findByIdAndUpdate(req.params.id, reporte, function(err, elreporte){
         if (err) { return next(err); }
         res.send(elreporte);
     })

@@ -22,11 +22,11 @@ exports.guiaDespachoShow = function(req, res) {
     });
 };
 
-exports.revisionNew = function(req, res) {
+exports.guiaDespachoNew = function(req, res) {
     res.render('guiaDespacho_form', { title: 'Agregar GuiaDespacho'});
 };
 
-exports.revisionCreate = function(req, res) {
+exports.guiaDespachoCreate = function(req, res) {
     var guiaDespacho = new GuiaDespacho({
         
     });
@@ -66,7 +66,7 @@ exports.guiaDespachoEdit = function(req, res) {
     );
 };
 
-exports.revisionUpdate = function(req, res) {
+exports.guiaDespachoUpdate = function(req, res) {
     var guiaDespacho = new GuiaDespacho({
         
         _id:req.params.id

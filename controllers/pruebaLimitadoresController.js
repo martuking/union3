@@ -1,4 +1,4 @@
-var PruebaLimitadores = require('../models/pruebaPruebaLimitadores');
+var PruebaLimitadores = require('../models/pruebaLimitadores');
 
 // pruebaLimitadoresList
 exports.pruebaLimitadoresList = function(req, res) {

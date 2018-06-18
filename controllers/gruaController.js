@@ -22,13 +22,23 @@ exports.gruaShow = function(req, res) {
     });
 };
 
-exports.revisionNew = function(req, res) {
+exports.gruaNew = function(req, res) {
     res.render('grua_form', { title: 'Agregar Grua'});
 };
 
-exports.revisionCreate = function(req, res) {
+exports.gruaCreate = function(req, res) {
     var grua = new Grua({
-        
+        numeroSerie: req.body.numeroSerie,
+        marca: req.body.marca,
+        modelo: req.body.modelo,
+        configuraciones:{
+            
+            altura: { type: Number, required: true },
+            pluma: { type: Number, required: true },
+            empotrado: { type: String, required: true },
+            lastre: { type: Number, required: true }
+    
+        }
     });
     grua.save(function (err) {
         if (err) { return next(err); }
@@ -66,7 +76,7 @@ exports.gruaEdit = function(req, res) {
     );
 };
 
-exports.revisionUpdate = function(req, res) {
+exports.gruaUpdate = function(req, res) {
     var grua = new Grua({
         
         _id:req.params.id

@@ -22,11 +22,11 @@ exports.obraShow = function(req, res) {
     });
 };
 
-exports.revisionNew = function(req, res) {
+exports.obraNew = function(req, res) {
     res.render('obra_form', { title: 'Agregar Obra'});
 };
 
-exports.revisionCreate = function(req, res) {
+exports.obraCreate = function(req, res) {
     var obra = new Obra({
         
     });
@@ -66,7 +66,7 @@ exports.obraEdit = function(req, res) {
     );
 };
 
-exports.revisionUpdate = function(req, res) {
+exports.obraUpdate = function(req, res) {
     var obra = new Obra({
         
         _id:req.params.id

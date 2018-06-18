@@ -22,11 +22,11 @@ exports.ofertaShow = function(req, res) {
     });
 };
 
-exports.revisionNew = function(req, res) {
+exports.ofertaNew = function(req, res) {
     res.render('oferta_form', { title: 'Agregar Oferta'});
 };
 
-exports.revisionCreate = function(req, res) {
+exports.ofertaCreate = function(req, res) {
     var oferta = new Oferta({
         
     });
@@ -66,7 +66,7 @@ exports.ofertaEdit = function(req, res) {
     );
 };
 
-exports.revisionUpdate = function(req, res) {
+exports.ofertaUpdate = function(req, res) {
     var oferta = new Oferta({
         
         _id:req.params.id

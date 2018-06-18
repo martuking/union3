@@ -1,5 +1,7 @@
 #! /usr/bin/env node
 
+import { INSPECT_MAX_BYTES } from 'buffer';
+
 console.log('This script populates persons to your database. Specified database as argument - e.g.: populatedb mongodb://your_username:your_password@your_dabase_url');
 
 //Get arguments passed on command line
@@ -15,7 +17,7 @@ var Reporte = require('./models/reporte')
 var Montaje = require('./models/montaje')
 var Reparacion = require('./models/reparacion')
 var Revision = require('./models/revision')
-var Limitadores = require('./models/limitadores')
+var Limitadores = require('./models/pruebaLimitadores')
 
 var mongoose = require('mongoose');
 var mongoDB = userArgs[0];
@@ -60,12 +62,10 @@ function createPersona(cod, apellido1, apellido2, nombre, rut, domicilio, cargo,
 	var persona = new Persona(personDetail);
 	persona.save(function(err){
 		if (err){
-			cb(err,null)
-			return
+			return next(err);
 		}
 		console.log('Nueva persona: '+persona);
-		personas.push(persona)
-		cb(null, persona)
+		personas.push(persona);
 	});
 }
 
@@ -98,16 +98,14 @@ function createReporte(empresa, obra, direccion, profesionalObra, marca, tipo, m
 	var reporte = new Reporte(reportDetail);
 	reporte.save(function(err){
 		if (err){
-			cb(err,null)
-			return
+			return next(err);
 		}
 		console.log('Nuevo reporte: '+reporte);
-		reportes.push(reporte)
-		cb(null, reporte)
+		reportes.push(reporte);
 	});
 }
 
 
 //createPersona(123,'Schmidt','Fernandez','Martin','177008087','Pocuro','Asesor','01','M','1991-03-18','2012-12-01',850000,'Soltero',0,'Modelo',0,false,'Cruz Blanca',1,false,true,2.91,false);
-createPersona(000,'Merino','Kipreos','Nciolas','176299169','Martin De Zamora','Consultor','01','M','1990-05-25','2018-03-11',850000,'Soltero',0,'Modelo',0,false,'Cruz Blanca',1,false,true,2.91,false);
+//createPersona(000,'Merino','Kipreos','Nciolas','176299169','Martin De Zamora','Consultor','01','M','1990-05-25','2018-03-11',850000,'Soltero',0,'Modelo',0,false,'Cruz Blanca',1,false,true,2.91,false);
 //createReporte('Ingevec S.A.', 'Ibis', 'Manuel Montt 252', 'Mauricio Badawy', 'Jaso', 'Torre', 'J47NS', '0118', '2018-02-06', '2018-02-06T09:00:00', '2018-02-06T18:00:00', 1, true, true, true, true, true, true, true, true, true, true);	

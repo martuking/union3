@@ -4,7 +4,7 @@ const { body,validationResult } = require('express-validator/check');
 const { sanitizeBody } = require('express-validator/filter');
 
 //personaList
-exports.personalist = function(req, res){
+exports.personaList = function(req, res){
     Persona.find()
     .populate('persona')
     .exec(function (err, personasList) {

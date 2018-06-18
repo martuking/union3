@@ -1,13 +1,11 @@
 var Cliente = require('../models/cliente');
-var Oficina = require('../models/oficina');
-var RepresentanteLegal = require('../models/representanteLegal');
-var PersonaContacto = require('../models/personaContacto');
+
 
 exports.clienteList = function(req, res) {
     Cliente.find({}).exec(function(err,clientesList){
     	if(err){return next(err);}
     	res.send(clientesList);
-    })
+    });
 };
 
 exports.clienteShow = function(req, res) {
@@ -34,7 +32,29 @@ exports.clienteCreate = function(req, res) {
         rut: req.body.rut,
         giro: req.body.giro,
         status: req.body.status,
-        fechaRegistro: req.body.fechaRegistro
+        fechaRegistro: req.body.fechaRegistro,
+        representanteLegal:[
+            {
+                nombre: req.body.representanteLegal.nombre,
+                apellido: req.body.representanteLegal.apellido,
+                rut: req.body.representanteLegal.rut
+            }
+        ],
+        oficinas:[
+            {
+                direccion: req.body.oficinas.direccion,
+                comuna: req.body.oficinas.comuna,
+                telefonos:[
+                    req.body.telefonos.telefono
+                ]
+            }
+        ],
+        personasContacto:[
+            {
+                nombre: req.body.personasContacto.nombre,
+                apellido: req.body.personasContacto.apellido,
+            }
+        ]
 
     });
     cliente.save(function (err) {
@@ -79,6 +99,28 @@ exports.clienteUpdate = function(req, res) {
         giro: req.body.giro,
         status: req.body.status,
         fechaRegistro: req.body.fechaRegistro,
+        representanteLegal:[
+            {
+                nombre: req.body.representanteLegal.nombre,
+                apellido: req.body.representanteLegal.apellido,
+                rut: req.body.representanteLegal.rut
+            }
+        ],
+        oficinas:[
+            {
+                direccion: req.body.oficinas.direccion,
+                comuna: req.body.oficinas.comuna,
+                telefonos:[
+                    req.body.telefono.telefono
+                ]
+            }
+        ],
+        personasContacto:[
+            {
+                nombre: req.body.personasContacto.nombre,
+                apellido: req.body.personasContacto.apellido,
+            }
+        ],
         _id:req.params.idCliente
     });
     Cliente.findByIdAndUpdate(req.params.id, cliente, function(err, elcliente){

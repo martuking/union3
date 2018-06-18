@@ -22,11 +22,11 @@ exports.adquisicionShow = function(req, res) {
     });
 };
 
-exports.revisionNew = function(req, res) {
+exports.adquisicionNew = function(req, res) {
     res.render('adquisicion_form', { title: 'Agregar Adquisicion'});
 };
 
-exports.revisionCreate = function(req, res) {
+exports.adquisicionCreate = function(req, res) {
     var adquisicion = new Adquisicion({
         descripcion: req.body.descripcion,
         categoria: req.body.categoria,
@@ -68,7 +68,7 @@ exports.adquisicionEdit = function(req, res) {
     );
 };
 
-exports.revisionUpdate = function(req, res) {
+exports.adquisicionUpdate = function(req, res) {
     var adquisicion = new Adquisicion({
         descripcion: req.body.descripcion,
         categoria: req.body.categoria,

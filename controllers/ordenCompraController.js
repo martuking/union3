@@ -22,11 +22,11 @@ exports.ordenCompraShow = function(req, res) {
     });
 };
 
-exports.revisionNew = function(req, res) {
+exports.ordenCompraNew = function(req, res) {
     res.render('ordenCompra_form', { title: 'Agregar OrdenCompra'});
 };
 
-exports.revisionCreate = function(req, res) {
+exports.ordenCompraCreate = function(req, res) {
     var ordenCompra = new OrdenCompra({
         
     });
@@ -66,7 +66,7 @@ exports.ordenCompraEdit = function(req, res) {
     );
 };
 
-exports.revisionUpdate = function(req, res) {
+exports.ordenCompraUpdate = function(req, res) {
     var ordenCompra = new OrdenCompra({
         
         _id:req.params.id

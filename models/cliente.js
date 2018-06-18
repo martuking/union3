@@ -10,6 +10,7 @@ var ClienteSchema = new Schema({
     fechaRegistro: { type: Date, required: true },
     representanteLegal:[
         {
+            id: { type: Schema.Types.ObjectId, ref: 'RepresentanteLegal'},
             nombre: { type: String, required: true },
             apellido: { type: String, required: true },
             rut: { type: String, required: true }
@@ -17,6 +18,7 @@ var ClienteSchema = new Schema({
     ],
     oficinas:[
         {
+            id: { type: Schema.Types.ObjectId, ref: 'Oficina'},
             direccion: { type: String, required: true },
             comuna: { type: String, required: true },
             telefonos: [ { type: Number, required: true } ]
@@ -24,6 +26,7 @@ var ClienteSchema = new Schema({
     ],
     personasContacto:[
         {
+            id: { type: Schema.Types.ObjectId, ref: 'PersonaContacto'},
             nombre: { type: String, required: true },
             apellido: { type: String, required: true },
             celular: { type: Number, required: true },

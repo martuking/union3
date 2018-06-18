@@ -34,17 +34,22 @@ exports.pruebaLimitadoresCreate = function(req, res) {
     var pruebaLimitadores = new PruebaLimitadores(
         {
             fechaPrueba: req.body.fechaPrueba,
+            
             profesionalObra: req.body.profesionalObra,
             jefeMontaje: req.body.jefeMontaje,
             primerAyudanteMontaje: req.body.primerAyudanteMontaje,
             segundoAyudanteMontaje: req.body.segundoAyudanteMontaje,
+            
             empresa: req.body.empresa,
+            
             obra: req.body.obra,
             direccion: req.body.direccion,
+            
             marca: req.body.marca,
             tipo: req.body.tipo,
             modelo: req.body.modelo,
             numero: req.body.numero,
+            
             peso1: req.body.peso1,
             peso2: req.body.peso2,
             longitud1: req.body.longitud1,
@@ -101,17 +106,22 @@ exports.pruebaLimitadoresUpdate = function(req, res) {
     var pruebaLimitadores = new PruebaLimitadores(
         {
             fechaPrueba: req.body.fechaPrueba,
+            
             profesionalObra: req.body.profesionalObra,
             jefeMontaje: req.body.jefeMontaje,
             primerAyudanteMontaje: req.body.primerAyudanteMontaje,
             segundoAyudanteMontaje: req.body.segundoAyudanteMontaje,
+            
             empresa: req.body.empresa,
+            
             obra: req.body.obra,
             direccion: req.body.direccion,
+            
             marca: req.body.marca,
             tipo: req.body.tipo,
             modelo: req.body.modelo,
             numero: req.body.numero,
+            
             peso1: req.body.peso1,
             peso2: req.body.peso2,
             longitud1: req.body.longitud1,

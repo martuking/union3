@@ -1,4 +1,7 @@
 var Cliente = require('../models/cliente');
+var Oficina = require('../models/oficina');
+var RepresentanteLegal = require('../models/representanteLegal');
+var PersonaContacto = require('../models/personaContacto');
 
 exports.clienteList = function(req, res) {
     Cliente.find({}).exec(function(err,clientesList){
@@ -31,24 +34,8 @@ exports.clienteCreate = function(req, res) {
         rut: req.body.rut,
         giro: req.body.giro,
         status: req.body.status,
-        fechaRegistro: req.body.fechaRegistro,
-        representanteLegal:[{
-            nombre : req.body.nombre,
-            apellido: req.body.apellido,
-            rut: req.body.rut
-        }],
-        oficinas:[{
-            direccion: req.body.direccion,
-            comuna: req.body.comuna,
-            telefonos:[req.body.telefono]
-        }],
-        personasContacto:[{
-            nombre: req.body.nombre,
-            apellido: req.body.apellido,
-            celular: req.body.celular,
-            mail: req-body.mail,
-            cargo: req.body.car
-        }]
+        fechaRegistro: req.body.fechaRegistro
+
     });
     cliente.save(function (err) {
         if (err) { return next(err); }
@@ -92,24 +79,7 @@ exports.clienteUpdate = function(req, res) {
         giro: req.body.giro,
         status: req.body.status,
         fechaRegistro: req.body.fechaRegistro,
-        representanteLegal:[{
-            nombre : req.body.nombre,
-            apellido: req.body.apellido,
-            rut: req.body.rut
-        }],
-        oficinas:[{
-            direccion: req.body.direccion,
-            comuna: req.body.comuna,
-            telefonos:[req.body.telefono]
-        }],
-        personasContacto:[{
-            nombre: req.body.nombre,
-            apellido: req.body.apellido,
-            celular: req.body.celular,
-            mail: req-body.mail,
-            cargo: req.body.car
-        }],
-        _id:req.params.id
+        _id:req.params.idCliente
     });
     Cliente.findByIdAndUpdate(req.params.id, cliente, function(err, elcliente){
         if (err) { return next(err); }

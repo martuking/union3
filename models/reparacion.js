@@ -29,8 +29,15 @@ var ReparacionSchema = new Schema({
 	obra:{
 		id: { type: Schema.Types.ObjectId, ref: 'Obras' },
 		nombre: { type: String, required:true },
-		ubicacion: { type: String, required:true },
-		contacto: { type: String, required:true }
+		ubicacion: { type: String, required:true }
+	},
+	//informacion persona de contacto
+	personaContacto:{
+		id: { type: Schema.Types.ObjectId, ref: 'PersonaForanea' },
+		nombre: { type: String, required:true },
+		apellido: { type: String, required:true },
+		telefono: { type: String, required:true },
+		cargo: { type: String, required:true }
 	},
 	//informacion grua
 	grua:{

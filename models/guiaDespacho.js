@@ -20,9 +20,11 @@ var GuiaSchema = new Schema({
     },
     
     datosChofer : {
-       nombre: { type: String, required: true },
-       apellido: { type: String, required: true },
-       rut: { type: String, required: true },
+        id: { type: Schema.Types.ObjectId, ref: 'PersonaForanea'},
+        nombre: { type: String, required: true },
+        apellido: { type: String, required: true },
+        rut: { type: String, required: true },
+        cargo: { type: String, required: true } 
     },
    
     items: [

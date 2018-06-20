@@ -10,10 +10,15 @@ var OrdenSchema = new Schema({
     cliente:{
         id: { type: Schema.Types.ObjectId, ref: 'Cliente'},
         nombre: { type: String, required: true },
-        rut: { type: String, required: true },
-        contacto: { type: String, required: true },
-        contactoMail: { type: String, required: true },
-        contactoTelefono: { type: Number, required: true }
+        rut: { type: String, required: true }
+    },
+    
+    personaContacto:{
+        id : { type: Schema.Types.ObjectId, ref: 'PersonaForanea' },
+        nombre: { type: String, required: true },
+        mail: { type: String, required: true },
+        telefono: { type: Number, required: true },
+        cargo: { type: String, required: true } 
     },
 
     obra:{

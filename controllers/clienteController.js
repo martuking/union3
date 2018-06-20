@@ -33,30 +33,32 @@ exports.clienteCreate = function(req, res) {
         giro: req.body.giro,
         status: req.body.status,
         fechaRegistro: req.body.fechaRegistro,
-        representanteLegal:[
-            {
-                nombre: req.body.representanteLegal.nombre,
-                apellido: req.body.representanteLegal.apellido,
-                rut: req.body.representanteLegal.rut
-            }
-        ],
         oficinas:[
             {
-                direccion: req.body.oficinas.direccion,
-                comuna: req.body.oficinas.comuna,
-                telefonos:[
-                    req.body.telefonos.telefono
-                ]
+                id: req.body.id,
+                oficina:{                
+                    direccion: req.body.direccion,
+                    comuna: req.body.comuna,
+                    telefono:req.body.telefono
+                }
             }
         ],
-        personasContacto:[
+        personasCliente:[
             {
-                nombre: req.body.personasContacto.nombre,
-                apellido: req.body.personasContacto.apellido,
+                id: req.body.id,
+                persona:{
+                    nombre: req.body.nombre,
+                    apellido: req.body.apellido,
+                    rut: req.body.rut,
+                    cargo: req.body.cargo,
+                    mail: req.body.mail,
+                    celular: req.body.celular,
+                }
             }
         ]
 
     });
+    console.log(cliente);
     cliente.save(function (err) {
         if (err) { return next(err); }
            res.send(cliente);
@@ -99,26 +101,23 @@ exports.clienteUpdate = function(req, res) {
         giro: req.body.giro,
         status: req.body.status,
         fechaRegistro: req.body.fechaRegistro,
-        representanteLegal:[
-            {
-                nombre: req.body.representanteLegal.nombre,
-                apellido: req.body.representanteLegal.apellido,
-                rut: req.body.representanteLegal.rut
-            }
-        ],
         oficinas:[
             {
-                direccion: req.body.oficinas.direccion,
-                comuna: req.body.oficinas.comuna,
-                telefonos:[
-                    req.body.telefono.telefono
-                ]
+                id: req.body.id,
+                direccion: req.body.direccion,
+                comuna: req.body.comuna,
+                telefono:req.body.telefono
             }
         ],
-        personasContacto:[
+        personasCliente:[
             {
-                nombre: req.body.personasContacto.nombre,
-                apellido: req.body.personasContacto.apellido,
+                id: req.body.id,
+                nombre: req.body.nombre,
+                apellido: req.body.apellido,
+                rut: req.body.rut,
+                cargo: req.body.cargo,
+                mail: req.body.mail,
+                celular: req.body.celular,
             }
         ],
         _id:req.params.idCliente

@@ -14,33 +14,48 @@ var ObraSchema = new Schema({
     },
     
     administrador:{
+        id : { type: Schema.Types.ObjectId, ref: 'PersonaForanea' },
         nombre: { type: String, required: true },
+        apellido: { type: String, required: true },
         mail: { type: String, required: true },
-        celular: { type: Number, required: true }
+        celular: { type: Number, required: true },
+        cargo: { type: String, required: true } 
     },
     
     jefeTerreno:{
+        id : { type: Schema.Types.ObjectId, ref: 'PersonaForanea' },
         nombre: { type: String, required: true },
+        apellido: { type: String, required: true },
         mail: { type: String, required: true },
-        celular: { type: Number, required: true }
+        celular: { type: Number, required: true },
+        cargo: { type: String, required: true } 
     },
     
     jefeObra:{
+        id : { type: Schema.Types.ObjectId, ref: 'PersonaForanea' },
         nombre: { type: String, required: true },
+        apellido: { type: String, required: true },
         mail: { type: String, required: true },
-        celular: { type: Number, required: true }
+        celular: { type: Number, required: true },
+        cargo: { type: String, required: true } 
     },
     
     administrativo:{
+        id : { type: Schema.Types.ObjectId, ref: 'PersonaForanea' },
         nombre: { type: String },
+        apellido: { type: String, required: true },
         mail: { type: String },
-        celular: { type: String }
+        celular: { type: String },
+        cargo: { type: String, required: true } 
     },
     
     prevencionista:{
+        id : { type: Schema.Types.ObjectId, ref: 'PersonaForanea' },
         nombre: { type: String, required: true },
+        apellido: { type: String, required: true },
         mail: { type: String, required: true },
-        celuar: { type: Number, required: true }
+        celuar: { type: Number, required: true },
+        cargo: { type: String, required: true } 
     },
     
     gruas:[

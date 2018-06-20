@@ -12,6 +12,8 @@ var guiaDespacho = require('../models/guiaDespacho');
 var obra = require('../models/obra');
 var oferta = require('../models/oferta');
 var ordenCompra = require('../models/ordenCompra');
+var oficina = require('../models/oficina');
+var personaForanea = require('../models/personaForanea');
 
 var async = require('async');
 
@@ -59,6 +61,12 @@ exports.index = function(req, res) {
         },
         ordenCompraCount: function(callback){
             ordenCompra.count(callback);
+        },
+        oficinaCount: function(callback){
+            oficina.count(callback);
+        },
+        personaForaneaCount: function(callback){
+            personaForanea.count(callback);
         }
     }, function(err, results) {
         res.render('index', {title:'Union App', error: err, data: results });

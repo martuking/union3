@@ -31,6 +31,15 @@ var MontajeSchema = new Schema({
 		profesionalCargo: {type: String, required: true}
 	},
 
+	personasContacto:[
+		{
+			id: { type: Schema.Types.ObjectId, ref: 'PersonaForanea'},
+			nombre: {type: String,required:true},
+			apellido: {type: String,required:true},
+			cargo: { type: String, required: true } 
+		}
+	],
+
 	//informacion grua:
 	grua:{
 		id : { type: Schema.Types.ObjectId, ref: 'Gruas'},

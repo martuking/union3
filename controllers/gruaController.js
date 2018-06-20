@@ -27,16 +27,17 @@ exports.gruaNew = function(req, res) {
 };
 
 exports.gruaCreate = function(req, res) {
+    
     var grua = new Grua({
         numeroSerie: req.body.numeroSerie,
         marca: req.body.marca,
         modelo: req.body.modelo,
         configuraciones:{
             
-            altura: { type: Number, required: true },
-            pluma: { type: Number, required: true },
-            empotrado: { type: String, required: true },
-            lastre: { type: Number, required: true }
+            altura: req.body.configuraciones.altura,
+            pluma: req.body.configuraciones.pluma,
+            empotrado: req.body.configuraciones.empotrado,
+            lastre: req.body.configuraciones.lastre
     
         }
     });
@@ -78,7 +79,17 @@ exports.gruaEdit = function(req, res) {
 
 exports.gruaUpdate = function(req, res) {
     var grua = new Grua({
-        
+        numeroSerie: req.body.numeroSerie,
+        marca: req.body.marca,
+        modelo: req.body.modelo,
+        configuraciones:{
+            
+            altura: req.body.configuraciones.altura,
+            pluma: req.body.configuraciones.pluma,
+            empotrado: req.body.configuraciones.empotrado,
+            lastre: req.body.configuraciones.lastre
+    
+        },
         _id:req.params.id
     });
     Grua.findByIdAndUpdate(req.params.id, grua, function(err, lagrua){

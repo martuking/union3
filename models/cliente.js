@@ -8,28 +8,27 @@ var ClienteSchema = new Schema({
     giro: { type: String, required: true },
     status: { type: String, required: true },
     fechaRegistro: { type: Date, required: true },
-    
-    representanteLegal:[
-        {
-            nombre: { type: String, required: true },
-            apellido: { type: String, required: true },
-            rut: { type: String, required: true }
-        }
-    ],
     oficinas:[
         {
-            direccion: { type: String, required: true },
-            comuna: { type: String, required: true },
-            telefonos: [ { type: Number, required: true } ]
+            id: { type: Schema.Types.ObjectId, ref: 'Oficina'},
+            oficina: {
+                direccion: { type: String, required: true },
+                comuna: { type: String, required: true },
+                telefono:  { type: String, required: true } 
+            }
         }
     ],
-    personasContacto:[
+    personasCliente:[
         {
-            nombre: { type: String, required: true },
-            apellido: { type: String, required: true },
-            celular: { type: Number, required: true },
-            mail: { type: String, required: true },
-            cargo: { type: String, required: true }
+            id: { type: Schema.Types.ObjectId, ref: 'PersonaForanea'},
+            persona: {
+                nombre: { type: String, required: true },
+                apellido: { type: String, required: true },
+                rut: { type: String, required: true },
+                celular: { type: String, required: true },
+                mail: { type: String, required: true },
+                cargo: { type: String, required: true }
+            }
         }
     ]
     

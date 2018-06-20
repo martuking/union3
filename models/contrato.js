@@ -7,18 +7,28 @@ var ContratoSchema = new Schema({
     fechaInicio: { type: Date, required: true },
     fechaTermino: { type: Date, required: true },
     status: { type: String, required: true },
+    
     cliente:{
         id: { type: Schema.Types.ObjectId, ref: 'Cliente'},
         nombre: { type: String, required: true },
-        rut: { type: String, required: true },
-        representanteLegal: { type: String, required: true }
+        rut: { type: String, required: true }
     },
+    
+    representanteLegal:{
+        id: { type: Schema.Types.ObjectId, ref: 'PersonaForanea'},
+        nombre: { type: String, required: true },
+        apellido: { type: String, required: true }, 
+        rut: { type: String, required: true },
+        cargo: { type: String, required: true },  
+    },
+    
     obra:{
         id: { type: Schema.Types.ObjectId, ref: 'Obra'},
         nombre: { type: String, required: true },
         administrador: { type: String, required: true },
         direccion: { type: String, required: true }
     },
+    
     gruas:[
         {
             id: { type: Schema.Types.ObjectId, ref: 'Grua'},

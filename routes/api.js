@@ -16,11 +16,31 @@ var guiaDespachoController = require('../controllers/guiaDespachoController');
 var obraController = require('../controllers/obraController');
 var ofertaController = require('../controllers/ofertaController');
 var ordenCompraController = require('../controllers/ordenCompraController');
+var oficinaController = require('../controllers/oficinaController');
+var personaForaneaController = require('../controllers/personaForaneaController');
 
 var indexController = require('../helpers/index');
 
 //ruta para el indice
 router.get('/', indexController.index);
+
+//rutas para personas foraneas
+router.get('/personaForaneas', personaForaneaController.personaForaneaList);
+router.get('/personaForaneas/new', personaForaneaController.personaForaneaNew);
+router.post('/personaForaneas/create', personaForaneaController.personaForaneaCreate);
+router.get('/personaForaneas/:id', personaForaneaController.personaForaneaShow);
+router.get('/personaForaneas/:id/edit', personaForaneaController.personaForaneaEdit);
+router.put('/personaForaneas/:id',personaForaneaController.personaForaneaUpdate);
+router.delete('/personaForaneas/:id', personaForaneaController.personaForaneaDelete);
+
+//rutas para oficinas
+router.get('/oficinas', oficinaController.oficinaList);
+router.get('/oficinas/new', oficinaController.oficinaNew);
+router.post('/oficinas/create', oficinaController.oficinaCreate);
+router.get('/oficinas/:id', oficinaController.oficinaShow);
+router.get('/oficinas/:id/edit', oficinaController.oficinaEdit);
+router.put('/oficinas/:id',oficinaController.oficinaUpdate);
+router.delete('/oficinas/:id', oficinaController.oficinaDelete);
 
 //rutas para pruebas de limitadores
 router.get('/pruebaLimitadores', pruebaLimitadoresController.pruebaLimitadoresList);

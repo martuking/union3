@@ -16,8 +16,16 @@ var OfertaSchema = new Schema({
     obra:{
         id: { type: Schema.Types.ObjectId, ref: 'Obra'},
         nombre: { type: String, required: true },
-        administrador: { type: String, required: true },
         ubicacion: { type: String, required: true }
+    },
+
+    personaContacto:{
+        id: { type: Schema.Types.ObjectId, ref: 'Obra'},
+        nombre: { type: String, required: true },
+        apellido: { type: String, required: true },
+        mail: { type: String, required: true },
+        telefono: { type: String, required: true },
+        cargo: { type: String, required: true } 
     },
     
     gruas: [

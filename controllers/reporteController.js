@@ -34,17 +34,6 @@ exports.reporteNew = function(req, res) {
 exports.reporteCreate = function(req, res) {
     var reporte = new Reporte(
         {
-            empresa: req.body.empresa,
-            
-            obra: req.body.obra,
-            direccion: req.body.direccion,
-            profesionalObra: req.body.profesionalObra,
-            
-            marca: req.body.marca,
-            tipo: req.body.tipo,
-            modelo: req.body.modelo,
-            numero: req.body.numero,
-            
             fecha: req.body.fecha,
             horaInicio: req.body.horaInicio,
             horaTermino: req.body.horaTermino,
@@ -103,14 +92,6 @@ exports.reporteEdit = function(req, res) {
 exports.reporteUpdate = function(req, res) {
     var reporte = new Reporte(
         {
-            empresa: req.body.empresa,
-            obra: req.body.obra,
-            direccion: req.body.direccion,
-            profesionalObra: req.body.profesionalObra,
-            marca: req.body.marca,
-            tipo: req.body.tipo,
-            modelo: req.body.modelo,
-            numero: req.body.numero,
             fecha: req.body.fecha,
             horaInicio: req.body.horaInicio,
             horaTermino: req.body.horaTermino,

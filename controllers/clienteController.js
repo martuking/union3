@@ -31,34 +31,8 @@ exports.clienteCreate = function(req, res) {
         nombre: req.body.nombre,
         rut: req.body.rut,
         giro: req.body.giro,
-        status: req.body.status,
         fechaRegistro: req.body.fechaRegistro,
-        oficinas:[
-            {
-                id: req.body.id,
-                oficina:{                
-                    direccion: req.body.direccion,
-                    comuna: req.body.comuna,
-                    telefono:req.body.telefono
-                }
-            }
-        ],
-        personasCliente:[
-            {
-                id: req.body.id,
-                persona:{
-                    nombre: req.body.nombre,
-                    apellido: req.body.apellido,
-                    rut: req.body.rut,
-                    cargo: req.body.cargo,
-                    mail: req.body.mail,
-                    celular: req.body.celular,
-                }
-            }
-        ]
-
     });
-    console.log(cliente);
     cliente.save(function (err) {
         if (err) { return next(err); }
            res.send(cliente);
@@ -99,27 +73,8 @@ exports.clienteUpdate = function(req, res) {
         nombre: req.body.nombre,
         rut: req.body.rut,
         giro: req.body.giro,
-        status: req.body.status,
         fechaRegistro: req.body.fechaRegistro,
-        oficinas:[
-            {
-                id: req.body.id,
-                direccion: req.body.direccion,
-                comuna: req.body.comuna,
-                telefono:req.body.telefono
-            }
-        ],
-        personasCliente:[
-            {
-                id: req.body.id,
-                nombre: req.body.nombre,
-                apellido: req.body.apellido,
-                rut: req.body.rut,
-                cargo: req.body.cargo,
-                mail: req.body.mail,
-                celular: req.body.celular,
-            }
-        ],
+        status: req.body.status,
         _id:req.params.idCliente
     });
     Cliente.findByIdAndUpdate(req.params.id, cliente, function(err, elcliente){

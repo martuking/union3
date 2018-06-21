@@ -33,23 +33,8 @@ exports.montajeNew = function(req, res) {
 exports.montajeCreate = function(req, res) {
     var montaje = new Montaje(
         {
+            
             fechaInstalacion: req.body.fechaInstalacion,
-            profesionalCargo: req.body.profesionalCargo,
-            jefeMontaje: req.body.jefeMontaje,
-            primerAyudanteMontaje: req.body.primerAyudanteMontaje,
-            segundoAyudanteMontaje: req.body.segundoAyudanteMontaje,
-            
-            empresa: req.body.empresa,
-            
-            obra: req.body.obra,
-            direccion: req.body.direccion,
-            profesionalObra: req.body.profesionalObra,
-            
-            marca: req.body.marca,
-            tipo: req.body.tipo,
-            modelo: req.body.modelo,
-            numero: req.body.numero,
-            
             areaTrabajo: req.body.areaTrabajo,
             fundaciones: req.body.fundaciones,
             lastresYcontrapesos: req.body.lastresYcontrapesos,
@@ -118,23 +103,8 @@ exports.montajeEdit = function(req, res) {
 exports.montajeUpdate = function(req, res) {
     var montaje = new Montaje(
         {
+            
             fechaInstalacion: req.body.fechaInstalacion,
-            profesionalCargo: req.body.profesionalCargo,
-            jefeMontaje: req.body.jefeMontaje,
-            primerAyudanteMontaje: req.body.primerAyudanteMontaje,
-            segundoAyudanteMontaje: req.body.segundoAyudanteMontaje,
-            
-            empresa: req.body.empresa,
-            
-            obra: req.body.obra,
-            direccion: req.body.direccion,
-            profesionalObra: req.body.profesionalObra,
-            
-            marca: req.body.marca,
-            tipo: req.body.tipo,
-            modelo: req.body.modelo,
-            numero: req.body.numero,
-            
             areaTrabajo: req.body.areaTrabajo,
             fundaciones: req.body.fundaciones,
             lastresYcontrapesos: req.body.lastresYcontrapesos,

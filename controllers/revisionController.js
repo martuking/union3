@@ -33,21 +33,6 @@ exports.revisionNew = function(req, res) {
 exports.revisionCreate = function(req, res) {
     var revision = new Revision({
         fechaInspeccion: req.body.fechaInspeccion,
-        encargadoMantencion: req.body.encargadoMantencion,
-        ayudanteMantencion: req.body.ayudanteMantencion,
-        gruero: req.body.gruero,
-        empresa: req.body.empresa,
-        obra: req.body.obra,
-        direccion: req.body.direccion,
-        profesionalObra: req.body.profesionalObra,
-        marca: req.body.marca,
-        tipo: req.body.tipo,
-        modelo: req.body.modelo,
-        numero: req.body.numero,
-        fechaMontaje: req.body.fechaMontaje,
-        numeroMontaje: req.body.numeroMontaje,
-        fechaUltimaMantencion: req.body.fechaUltimaMantencion,
-        ultimaRevision: req.body.ultimaRevision,
         soportePunto: req.body.soportePunto,
         topeGancho: req.body.topeGancho,
         coronaRodillos: req.body.coronaRodillos,
@@ -130,27 +115,6 @@ exports.revisionEdit = function(req, res) {
 exports.revisionUpdate = function(req, res) {
     var revision = new Revision({
         fechaInspeccion: req.body.fechaInspeccion,
-        encargadoMantencion: req.body.encargadoMantencion,
-        ayudanteMantencion: req.body.ayudanteMantencion,
-        gruero: req.body.gruero,
-        
-        empresa: req.body.empresa,
-        
-        obra: req.body.obra,
-        direccion: req.body.direccion,
-        profesionalObra: req.body.profesionalObra,
-        
-        marca: req.body.marca,
-        tipo: req.body.tipo,
-        modelo: req.body.modelo,
-        numero: req.body.numero,
-        
-        fechaMontaje: req.body.fechaMontaje,
-        numeroMontaje: req.body.numeroMontaje,
-        
-        fechaUltimaMantencion: req.body.fechaUltimaMantencion,
-        ultimaRevision: req.body.ultimaRevision,
-        
         soportePunto: req.body.soportePunto,
         topeGancho: req.body.topeGancho,
         coronaRodillos: req.body.coronaRodillos,

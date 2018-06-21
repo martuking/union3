@@ -3,8 +3,6 @@ var Schema = mongoose.Schema;
 
 var MontajeSchema = new Schema({
 	
-	//datos montaje y puesta en marcha
-	fechaInstalacion : {type: Date, required: true},
 	//datos de las personas que fueron al montaje
 	personas:[{ type: Schema.Types.ObjectId, ref: 'Persona' }],
 	//datos cliente
@@ -20,7 +18,8 @@ var MontajeSchema = new Schema({
 	fundaciones: {type: Boolean,required:true},
 	lastresYcontrapesos: {type: Boolean,required:true},
 	instalacionesElectricas: {type: Boolean,required:true},
-
+	//datos montaje y puesta en marcha
+	fechaInstalacion : {type: Date, required: true},
 	//emplazamiento de la grua
 	eLibreMinAncho: {type: Number,required:true},
 	eLibreMinAltura: {type: Number,required:true},

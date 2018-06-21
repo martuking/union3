@@ -34,8 +34,7 @@ exports.personaForaneaCreate = function(req, res) {
         rut: req.body.rut,
         cargo: req.body.cargo,
         mail: req.body.mail,
-        celular: req.body.celular,
-        clienteId: req.body.clienteId
+        celular: req.body.celular
     });
     personaForanea.save(function (err) {
         if (err) { return next(err); }
@@ -81,7 +80,6 @@ exports.personaForaneaUpdate = function(req, res) {
         cargo: req.body.cargo,
         mail: req.body.mail,
         celular: req.body.celular,
-        clienteId: req.body.clienteId,
         _id:req.params.id
     });
     PersonaForanea.findByIdAndUpdate(req.params.id, personaForanea, function(err, lapersonaForanea){

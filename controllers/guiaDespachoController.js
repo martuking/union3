@@ -28,7 +28,14 @@ exports.guiaDespachoNew = function(req, res) {
 
 exports.guiaDespachoCreate = function(req, res) {
     var guiaDespacho = new GuiaDespacho({
-        
+        tipoTraslado : req.body.tipoTraslado,
+        fecha: req.body.fecha,
+        items:[
+            {
+                descripcion:req.body.descripcion,
+                cantidad: req.body.cantidad
+            }
+        ]
     });
     guiaDespacho.save(function (err) {
         if (err) { return next(err); }
@@ -68,7 +75,14 @@ exports.guiaDespachoEdit = function(req, res) {
 
 exports.guiaDespachoUpdate = function(req, res) {
     var guiaDespacho = new GuiaDespacho({
-        
+        tipoTraslado : req.body.tipoTraslado,
+        fecha: req.body.fecha,
+        items:[
+            {
+                descripcion:req.body.descripcion,
+                cantidad: req.body.cantidad
+            }
+        ],
         _id:req.params.id
     });
     GuiaDespacho.findByIdAndUpdate(req.params.id, guiaDespacho, function(err, laguiaDespacho){

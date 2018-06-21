@@ -5,7 +5,7 @@ var OrdenSchema = new Schema({
 
     fechaCreacion: { type: Date, required: true },
     fechaEntrega: { type: Date, required: true },
-    status: { type: String, required: true },
+    status: { type: String, default: 'activa' },
     cliente:{ type: Schema.Types.ObjectId, ref: 'Cliente'},
     personaContacto:{ type: Schema.Types.ObjectId, ref: 'PersonaForanea' },
     obra:{ type: Schema.Types.ObjectId, ref: 'Obra' },

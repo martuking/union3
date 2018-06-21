@@ -4,7 +4,7 @@ var Schema = mongoose.Schema;
 var OfertaSchema = new Schema({
 
     fechaCreacion: { type: Date, required: true },
-    status: { type: String, required: true },
+    status: { type: String, default: 'activa' },
     fechaCambioStatus: { type: Date, required: true },
     cliente:{ type: Schema.Types.ObjectId, ref: 'Cliente'},
     obra:{ type: Schema.Types.ObjectId, ref: 'Obra' },

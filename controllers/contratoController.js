@@ -30,36 +30,7 @@ exports.contratoCreate = function(req, res) {
     var contrato = new Contrato({
         fechaCreacion: req.body.fechaCreacion,
         fechaInicio: req.body.fechaInicio,
-        fechaTermino: req.body.fechaTermino,
-        status: req.body.status,
-        cliente:{
-            id: req.body.cliente.id,
-            nombre: req.body.cliente.nombre,
-            rut: req.body.cliente.rut,
-            representanteLegal: req.body.cliente.representanteLegal
-        },
-        obra:{
-            id: req.body.obra.id,
-            nombre: req.body.obra.nombre,
-            administrador: req.body.obra.administrador,
-            direccion: req.body.obra.direccion
-        },
-        gruas:[
-            {
-                id: req.body.gruas.id,
-                detalle: {   
-                    numeroSerie: req.body.detalle.numeroSerie,
-                    marca: req.body.detalle.marca,
-                    modelo: req.body.detalle.modelo
-                },
-                configuraciones:{
-                    altura: req.body.configuraciones.altura,
-                    pluma: req.body.configuraciones.pluma,
-                    empotrado: req.body.configuraciones.empotrado,
-                    lastres: req.body.configuraciones.lastres
-                }
-            }
-        ]
+        fechaTermino: req.body.fechaTermino
     });
     contrato.save(function (err) {
         if (err) { return next(err); }

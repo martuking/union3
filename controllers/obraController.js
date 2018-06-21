@@ -28,7 +28,9 @@ exports.obraNew = function(req, res) {
 
 exports.obraCreate = function(req, res) {
     var obra = new Obra({
-        
+        nombre: req.body.nombre,
+        ubicacion: req.body.ubicacion,
+        telefono: req.body.telefono
     });
     obra.save(function (err) {
         if (err) { return next(err); }
@@ -68,7 +70,9 @@ exports.obraEdit = function(req, res) {
 
 exports.obraUpdate = function(req, res) {
     var obra = new Obra({
-        
+        nombre: req.body.nombre,
+        ubicacion: req.body.ubicacion,
+        telefono: req.body.telefono,
         _id:req.params.id
     });
     Obra.findByIdAndUpdate(req.params.id, obra, function(err, laobra){

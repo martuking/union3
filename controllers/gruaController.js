@@ -33,12 +33,10 @@ exports.gruaCreate = function(req, res) {
         marca: req.body.marca,
         modelo: req.body.modelo,
         configuraciones:{
-            
             altura: req.body.configuraciones.altura,
             pluma: req.body.configuraciones.pluma,
             empotrado: req.body.configuraciones.empotrado,
             lastre: req.body.configuraciones.lastre
-    
         }
     });
     grua.save(function (err) {
@@ -83,12 +81,10 @@ exports.gruaUpdate = function(req, res) {
         marca: req.body.marca,
         modelo: req.body.modelo,
         configuraciones:{
-            
             altura: req.body.configuraciones.altura,
             pluma: req.body.configuraciones.pluma,
             empotrado: req.body.configuraciones.empotrado,
             lastre: req.body.configuraciones.lastre
-    
         },
         _id:req.params.id
     });

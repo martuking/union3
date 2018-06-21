@@ -28,7 +28,31 @@ exports.ordenCompraNew = function(req, res) {
 
 exports.ordenCompraCreate = function(req, res) {
     var ordenCompra = new OrdenCompra({
-        
+        fechaCreacion: { type: Date, required: true },
+        fechaEntrega: { type: Date, required: true },
+        gruas: [
+            {
+                grua: {},
+                arriendo:{
+                    gruaTelescopicaHoras: req.body.gruaTelescopicaHoras,
+                    precioArriendoGruaTelescopica: req.body.precioArriendoGruaTelescopica,
+                    arriendoGruaTorreMeses: req.body.arriendoGruaTorreMeses,
+                    arriendoGruaTorreMesesPrecio: req.body.arriendoGruaTorreMesesPrecio,
+                    desmontajeTorre: req.body.desmontajeTorre,
+                    horasExtraGruaOperadorCantidad: req.body.horasExtraGruaOperadorCantidad,
+                    horasExtraGruaOperadorPrecio: req.body.horasExtraGruaOperadorPrecio,
+                    montajeTorre: req.body.montajeTorre,
+                    operadorTorreMeses: req.body.operadorTorreMeses,
+                    operadorTorrePrecio: req.body.operadorTorrePrecio,
+                    recargoDiaNoHabilCantidad: req.body.recargoDiaNoHabilCantidad,
+                    recargoDiaNoHabilPrecio: req.body.recargoDiaNoHabilPrecio,
+                    viaticoMontajeDesmontajeCantidad: req.body.viaticoMontajeDesmontajeCantidad,
+                    viaticoMontajeDesmontajePrecio: req.body.viaticoMontajeDesmontajePrecio,
+                    viaticoOperadorMeses: req.body.viaticoOperadorMeses,
+                    viaticoOperadorPrecio: req.body.viaticoOperadorPrecio
+                }
+            }
+        ]
     });
     ordenCompra.save(function (err) {
         if (err) { return next(err); }
@@ -68,7 +92,31 @@ exports.ordenCompraEdit = function(req, res) {
 
 exports.ordenCompraUpdate = function(req, res) {
     var ordenCompra = new OrdenCompra({
-        
+        fechaCreacion: { type: Date, required: true },
+        fechaEntrega: { type: Date, required: true },
+        gruas: [
+            {
+                grua: {},
+                arriendo:{
+                    gruaTelescopicaHoras: req.body.gruaTelescopicaHoras,
+                    precioArriendoGruaTelescopica: req.body.precioArriendoGruaTelescopica,
+                    arriendoGruaTorreMeses: req.body.arriendoGruaTorreMeses,
+                    arriendoGruaTorreMesesPrecio: req.body.arriendoGruaTorreMesesPrecio,
+                    desmontajeTorre: req.body.desmontajeTorre,
+                    horasExtraGruaOperadorCantidad: req.body.horasExtraGruaOperadorCantidad,
+                    horasExtraGruaOperadorPrecio: req.body.horasExtraGruaOperadorPrecio,
+                    montajeTorre: req.body.montajeTorre,
+                    operadorTorreMeses: req.body.operadorTorreMeses,
+                    operadorTorrePrecio: req.body.operadorTorrePrecio,
+                    recargoDiaNoHabilCantidad: req.body.recargoDiaNoHabilCantidad,
+                    recargoDiaNoHabilPrecio: req.body.recargoDiaNoHabilPrecio,
+                    viaticoMontajeDesmontajeCantidad: req.body.viaticoMontajeDesmontajeCantidad,
+                    viaticoMontajeDesmontajePrecio: req.body.viaticoMontajeDesmontajePrecio,
+                    viaticoOperadorMeses: req.body.viaticoOperadorMeses,
+                    viaticoOperadorPrecio: req.body.viaticoOperadorPrecio
+                }
+            }
+        ],
         _id:req.params.id
     });
     OrdenCompra.findByIdAndUpdate(req.params.id, ordenCompra, function(err, laordenCompra){

@@ -6,31 +6,11 @@ var OfertaSchema = new Schema({
     fechaCreacion: { type: Date, required: true },
     status: { type: String, required: true },
     fechaCambioStatus: { type: Date, required: true },
-    
-    cliente:{
-        id: { type: Schema.Types.ObjectId, ref: 'Cliente'},
-        rut: { type: String, required: true },
-        nombre: { type: String, required: true }
-    },
-    
-    obra:{
-        id: { type: Schema.Types.ObjectId, ref: 'Obra'},
-        nombre: { type: String, required: true },
-        ubicacion: { type: String, required: true }
-    },
-
-    personaContacto:{
-        id: { type: Schema.Types.ObjectId, ref: 'Obra'},
-        nombre: { type: String, required: true },
-        apellido: { type: String, required: true },
-        mail: { type: String, required: true },
-        telefono: { type: String, required: true },
-        cargo: { type: String, required: true } 
-    },
-    
+    cliente:{ type: Schema.Types.ObjectId, ref: 'Cliente'},
+    obra:{ type: Schema.Types.ObjectId, ref: 'Obra' },
     gruas: [
         {
-            id: Schema.Types.ObjectId,
+            grua: { type:Schema.Types.ObjectId, ref:'Grua' },
             itemsIncluidos: {
                 operadorPrecio: { type: Number, required: true },
                 horaExtraOperadorSemana: { type: Number, required: true },

@@ -5,56 +5,22 @@ var RevisionSchema = new Schema({
 
 	//revision e inspeccion
 	fechaInspeccion: { type: Date, required: true },
-	personas:[
-		{
-			id: { type: Schema.Types.ObjectId, ref: 'Persona' },
-			detalle: {
-				nombre: { type: String, required:true },
-				apellido: { type: String, required:true },
-				cargo: { type: String, required:true }
-			}  
-		}
-	],
-
+	//datos de las personas que hicieron la revision
+	personas:[{ type: Schema.Types.ObjectId, ref: 'Persona' }],
 	//datos cliente	
-	cliente:{
-		id: { type: Schema.Types.ObjectId, ref: 'Clientes' },
-		nombre: { type: String, required:true }
-	},
+	cliente:{ type: Schema.Types.ObjectId, ref: 'Cliente' },
 	//datos obra
-	obra:{
-		id: { type: Schema.Types.ObjectId, ref: 'Obras' },
-		nombre: { type: String, required:true },
-		ubicacion: { type: String, required:true }		
-	},
+	obra:{ type: Schema.Types.ObjectId, ref: 'Obra' },
 	//informacion persona de contacto
-	personaContacto:{
-		id: { type: Schema.Types.ObjectId, ref: 'PersonaForanea' },
-		nombre: { type: String, required:true },
-		apellido: { type: String, required:true },
-		telefono: { type: String, required:true },
-		cargo: { type: String, required:true }
-	},
+	personaContacto:{ type: Schema.Types.ObjectId, ref: 'PersonaForanea' },
 	//informacion grua
-	grua:{
-		id: { type: Schema.Types.ObjectId, ref: 'Gruas' },
-		marca: { type: String, required:true },
-		modelo: { type: String, required:true },
-		numeroSerie: { type: String, required:true }
-	},
+	grua:{ type: Schema.Types.ObjectId, ref: 'Grua' },
 	//datos revisiones anteriores
-	revisiones:[
-		{
-			id: { type: Schema.Types.ObjectId, ref: 'Revisiones' },
-			fechaUltimaMantencion: { type: Date, required: true }
-		}
-	],
+	revisionesAnteriores:[{ type: Schema.Types.ObjectId, ref: 'Revisione' }],
 	//datos montaje 
-	montaje:{
-		id: {type: Schema.Types.ObjectId, ref: 'Montajes' },
-		fechaMontaje: { type: Date, required: true }
-	},
+	montaje:{type: Schema.Types.ObjectId, ref: 'Montaje' },
 	//operaciones a realizar
+	
 	//engrase
 	soportePunto: { type: String, required:true },
 	topeGancho: { type: String, required:true },

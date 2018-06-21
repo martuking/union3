@@ -4,54 +4,19 @@ var Schema = mongoose.Schema;
 var ReparacionSchema = new Schema({
 	//responsable de la reparacion
 	fechaReparacion : { type: Date, required: true },
-	personas:[
-		{
-			id: { type: Schema.Types.ObjectId, ref: 'Persona' },
-			detalle: {
-				nombre: { type: String, required:true },
-				apellido: { type: String, required:true },
-				cargo: { type: String, required:true }
-			}  
-		}
-	],
+	personas:[{ type: Schema.Types.ObjectId, ref: 'Persona' }],
 	//datos revisiones anteriores
-	revisiones:[
-		{
-			id: { type: Schema.Types.ObjectId, ref: 'Revisiones' }
-		}
-	],
+	revisiones:[{ type: Schema.Types.ObjectId, ref: 'Revision' }],
 	//datos cliente
-	cliente:{
-		id: { type: Schema.Types.ObjectId, ref: 'Clientes' },
-		nombre: { type: String, required:true }
-	},
+	cliente:{ type: Schema.Types.ObjectId, ref: 'Cliente' },
 	//datos obra
-	obra:{
-		id: { type: Schema.Types.ObjectId, ref: 'Obras' },
-		nombre: { type: String, required:true },
-		ubicacion: { type: String, required:true }
-	},
+	obra:{ type: Schema.Types.ObjectId, ref: 'Obra' },
 	//informacion persona de contacto
-	personaContacto:{
-		id: { type: Schema.Types.ObjectId, ref: 'PersonaForanea' },
-		nombre: { type: String, required:true },
-		apellido: { type: String, required:true },
-		telefono: { type: String, required:true },
-		cargo: { type: String, required:true }
-	},
+	personaContacto:{ type: Schema.Types.ObjectId, ref: 'PersonaForanea' },
 	//informacion grua
-	grua:{
-		id: { type: Schema.Types.ObjectId, ref: 'Gruas' },
-		marca: { type: String, required:true },
-		modelo: { type: String, required:true },
-		numeroSerie: { type: String, required:true }
-	},
+	grua:{ type: Schema.Types.ObjectId, ref: 'Grua' },
 	//datos montaje y revisiones anteriores
-	montaje:{
-		id: {type: Schema.Types.ObjectId, ref: 'Montajes' },
-		fechaMontaje: { type: Date, required:true },
-		fechaUltimaMantencion: { type: Date, required:true }
-	}
+	montaje:{ type: Schema.Types.ObjectId, ref: 'Montaje' }
 });
 
 ReparacionSchema.virtual('id').get(function(){

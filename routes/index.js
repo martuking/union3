@@ -1,9 +1,7 @@
 var express = require('express');
 var router = express.Router();
+var indexController = require('../helpers/index');
 
-/* GET home page. */
-router.get('/', function(req, res) {
-  //res.redirect('/main');
-  res.redirect('/api');
-});
+router.get('/', indexController.index);
+
 module.exports = router;

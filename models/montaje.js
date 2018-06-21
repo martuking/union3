@@ -5,49 +5,16 @@ var MontajeSchema = new Schema({
 	
 	//datos montaje y puesta en marcha
 	fechaInstalacion : {type: Date, required: true},
-	personas:[
-		{
-			id: { type: Schema.Types.ObjectId, ref: 'Persona' },
-			detalle: {
-				nombre: { type: String, required:true },
-				apellido: { type: String, required:true },
-				cargo: { type: String, required:true }
-			}  
-		}
-	],
-	
+	//datos de las personas que fueron al montaje
+	personas:[{ type: Schema.Types.ObjectId, ref: 'Persona' }],
 	//datos cliente
-	cliente:{
-		id: { type: Schema.Types.ObjectId, ref: 'Clientes'},
-		nombre: {type: String,required:true}
-	},
-
+	cliente:{type: Schema.Types.ObjectId, ref: 'Cliente'},
 	//datos obra
-	obra:{	
-		id: { type: Schema.Types.ObjectId, ref: 'Obras'},
-		nombre: {type: String,required:true},
-		direccion: {type: String,required:true},
-		contacto: {type: String,required:true},
-		profesionalCargo: {type: String, required: true}
-	},
-
-	personasContacto:[
-		{
-			id: { type: Schema.Types.ObjectId, ref: 'PersonaForanea'},
-			nombre: {type: String,required:true},
-			apellido: {type: String,required:true},
-			cargo: { type: String, required: true } 
-		}
-	],
-
+	obra:{ type: Schema.Types.ObjectId, ref: 'Obra' },
+	//persona de contacto en la obra
+	personasContacto:[{ type: Schema.Types.ObjectId, ref: 'PersonaForanea'}],
 	//informacion grua:
-	grua:{
-		id : { type: Schema.Types.ObjectId, ref: 'Gruas'},
-		marca: {type: String,required:true},
-		modelo: {type: String,required:true},
-		numeroSerie: {type: String,required:true}
-	},
-	
+	grua:{ type: Schema.Types.ObjectId, ref: 'Grua' },
 	//informacion emplazamiento e instalacion electrica
 	areaTrabajo: {type: Boolean,required:true},
 	fundaciones: {type: Boolean,required:true},

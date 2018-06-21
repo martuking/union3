@@ -6,7 +6,7 @@ var OficinaSchema = new Schema({
     direccion: { type: String, require: true },
     comuna: { type: String, require: true },
     telefono: { type: String, require: true },
-    clienteId: { type: Schema.Types.ObjectId, ref: 'Cliente'},
+    cliente: { type: Schema.Types.ObjectId, ref: 'Cliente'},
 
 });
 

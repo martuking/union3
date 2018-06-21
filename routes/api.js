@@ -19,11 +19,6 @@ var ordenCompraController = require('../controllers/ordenCompraController');
 var oficinaController = require('../controllers/oficinaController');
 var personaForaneaController = require('../controllers/personaForaneaController');
 
-var indexController = require('../helpers/index');
-
-//ruta para el indice
-router.get('/', indexController.index);
-
 //rutas para personas foraneas
 router.get('/personaForaneas', personaForaneaController.personaForaneaList);
 router.get('/personaForaneas/new', personaForaneaController.personaForaneaNew);

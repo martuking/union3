@@ -104,6 +104,8 @@ router.delete('/adquisiciones/:id', adquisicionController.adquisicionDelete);
 router.get('/clientes', clienteController.clienteList);
 router.get('/clientes/new', clienteController.clienteNew);
 router.post('/clientes/create', clienteController.clienteCreate);
+router.post('/clientes/:id/createOficina', clienteController.clienteOficinaCreate);
+router.post('/clientes/:id/createPersonaForanea', clienteController.clientePersonaForaneaCreate);
 router.get('/clientes/:id', clienteController.clienteShow);
 router.get('/clientes/:id/edit', clienteController.clienteEdit);
 router.put('/clientes/:id',clienteController.clienteUpdate);

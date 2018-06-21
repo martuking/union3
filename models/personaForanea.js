@@ -9,7 +9,8 @@ PersonaForaneaSchema = new Schema({
     rut: { type: String },
     cargo: { type: String, require: true },
     mail: { type: String },
-    celular: { type: String }
+    celular: { type: String },
+    cliente: { type: Schema.Types.ObjectId, ref: 'cliente' }
 
 }); 
 
